@@ -1,0 +1,89 @@
+appId: com.easyclaw.desktop
+productName: EasyClaw
+
+directories:
+  output: release
+
+files:
+  - dist/**
+  - build/trayIcon.png
+  - build/trayIcon@2x.png
+  - changelog.json
+  - node_modules/**
+  - "!node_modules/**/test_extension.node"
+  - package.json
+
+extraMetadata:
+  main: dist/main.cjs
+
+asar: true
+icon: build/icon
+
+# Files copied outside asar into Contents/Resources/
+extraResources:
+  # OpenClaw vendor runtime — must be outside asar (runs as a separate Node.js process)
+  - from: "../../vendor/openclaw"
+    to: "vendor/openclaw"
+    filter:
+      - "openclaw.mjs"
+      - "package.json"
+      - "dist/**"
+      - "docs/**"
+      - "extensions/**"
+      - "!extensions/**/node_modules/**"
+      - "packages/**"
+      - "!packages/**/node_modules/**"
+  # File permissions plugin — must be outside asar (loaded by OpenClaw at runtime)
+  - from: "../../packages/file-permissions-plugin/dist"
+    to: "file-permissions-plugin"
+    filter:
+      - "easyclaw-file-permissions.mjs"
+      - "openclaw.plugin.json"
+  # EasyClaw extensions — auto-discovered by OpenClaw at runtime
+  - from: "../../extensions"
+    to: "extensions"
+    filter:
+      - "**"
+      - "!**/node_modules/**"
+      - "!**/.turbo/**"
+  # Panel UI static files
+  - from: "../panel/dist"
+    to: "panel-dist"
+
+mac:
+  category: public.app-category.developer-tools
+  icon: build/icon.icns
+  extendInfo:
+    LSUIElement: true
+  target:
+    - target: dmg
+      arch: universal
+    - target: zip
+      arch: universal
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  entitlements: entitlements.mac.plist
+  entitlementsInherit: entitlements.mac.plist
+  identity: null
+  notarize: false
+  # Vendor node_modules may contain Mach-O binaries (esbuild, etc.)
+  # that are identical in both x64/arm64 builds. Tell the universal
+  # merge to skip lipo for these files.
+  x64ArchFiles: "Contents/Resources/vendor/openclaw/node_modules/**"
+
+dmg:
+  background: build/dmg-background.png
+  iconSize: 80
+  window:
+    width: 590
+    height: 380
+  contents:
+    - x: 155
+      y: 200
+    - x: 435
+      y: 200
+      type: link
+      path: /Applications
+
+afterPack: scripts/copy-vendor-deps.cjs
+afterSign: scripts/notarize.cjs

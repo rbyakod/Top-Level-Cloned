@@ -1,0 +1,16 @@
+docs/
+vendor/openclaw/
+node_modules/
+dist/
+.turbo/
+.vscode/
+.claude/
+*.tsbuildinfo
+.DS_Store
+server/
+apps/desktop/release/
+playwright-report/
+test-results/
+.venv/
+.env
+CLAUDE.md
