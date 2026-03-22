@@ -1,0 +1,19 @@
+{
+  "name": "example-fastify",
+  "version": "0.13.6",
+  "private": true,
+  "scripts": {
+    "check": "tsc --pretty --noEmit",
+    "start": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@whatwg-node/fetch": "^0.9.17",
+    "fastify": "4.17.0",
+    "graphql-yoga": "5.3.1",
+    "pino-pretty": "10.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.16.16",
+    "ts-node": "10.9.1"
+  }
+}

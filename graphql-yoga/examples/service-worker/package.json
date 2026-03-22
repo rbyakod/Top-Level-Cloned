@@ -1,0 +1,20 @@
+{
+  "name": "example-service-worker",
+  "version": "0.12.3",
+  "private": true,
+  "scripts": {
+    "build": "wrangler publish --dry-run --outdir=dist",
+    "check": "tsc --pretty --noEmit",
+    "start": "wrangler dev",
+    "test": "jest"
+  },
+  "dependencies": {
+    "graphql": "16.6.0",
+    "graphql-yoga": "5.3.1"
+  },
+  "devDependencies": {
+    "@whatwg-node/fetch": "^0.9.17",
+    "typescript": "5.1.6",
+    "wrangler": "3.1.0"
+  }
+}

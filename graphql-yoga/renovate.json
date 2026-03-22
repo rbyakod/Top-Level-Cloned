@@ -1,0 +1,45 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>the-guild-org/shared-config:renovate", ":preserveSemverRanges"],
+  "automerge": true,
+  "major": {
+    "automerge": false
+  },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+  "packageRules": [
+    {
+      "groupName": "envelop",
+      "matchPackagePrefixes": "@envelop"
+    },
+    {
+      "groupName": "whatwg-node",
+      "matchPackagePrefixes": "@whatwg-node"
+    },
+    {
+      "excludePackagePatterns": [
+        "@changesets/*",
+        "typescript",
+        "typedoc*",
+        "^@theguild/",
+        "@graphql-inspector/core",
+        "next",
+        "@envelop/*",
+        "@whatwg-node/*",
+        "@graphql-yoga/*",
+        "graphql-yoga",
+        "lru-cache",
+        "sofa-api"
+      ],
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch"
+    }
+  ],
+  "ignoreDeps": ["@sveltejs/kit", "graphiql", "puppeteer", "graphql-yoga"],
+  "ignorePaths": ["**/__tests__/**", "**/test/**", "**/tests/**", "**/__fixtures__/**"],
+  "baseBranches": ["main"]
+}
