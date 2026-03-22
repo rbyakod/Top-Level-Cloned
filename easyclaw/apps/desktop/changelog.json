@@ -1,0 +1,326 @@
+[
+  {
+    "version": "1.2.10",
+    "date": "2026-02-15",
+    "en": [
+      "Robust update ready state, Windows compatibility, and banner UI cleanup"
+    ],
+    "zh": [
+      "更新就绪状态更可靠、Windows 兼容性改进、更新横幅 UI 优化"
+    ]
+  },
+  {
+    "version": "1.2.9",
+    "date": "2026-02-15",
+    "en": [
+      "Fixed stale extensionsDir paths across installs and Windows compatibility"
+    ],
+    "zh": [
+      "修复跨安装的扩展目录路径残留和 Windows 兼容性问题"
+    ]
+  },
+  {
+    "version": "1.2.8",
+    "date": "2026-02-15",
+    "en": [
+      "Unified extension loading via single extensionsDir path",
+      "Fixed search-browser-fallback plugin path in packaged app"
+    ],
+    "zh": [
+      "统一扩展加载路径（单一 extensionsDir）",
+      "修复打包后搜索浏览器回退插件路径问题"
+    ]
+  },
+  {
+    "version": "1.2.7",
+    "date": "2026-02-15",
+    "en": [
+      "Compress chat images client-side to fit WebSocket 512KB frame limit",
+      "Delay update check to avoid startup race condition"
+    ],
+    "zh": [
+      "客户端压缩聊天图片以适应 WebSocket 512KB 帧限制",
+      "延迟更新检查以避免启动时竞态条件"
+    ]
+  },
+  {
+    "version": "1.2.6",
+    "date": "2026-02-14",
+    "en": [
+      "WeCom rebind warning and channel lifecycle events",
+      "Fixed updater: fire-and-forget download, un-dismiss banner on active download",
+      "Moved search-browser-fallback plugin to extensions/",
+      "TypeScript strict-mode and React 19 compatibility fixes",
+      "Dependency updates (undici, @types/ws)"
+    ],
+    "zh": [
+      "企业微信重新绑定警告和频道生命周期事件",
+      "修复更新器：后台下载、下载中重新显示更新横幅",
+      "搜索浏览器回退插件移至 extensions/",
+      "TypeScript 严格模式和 React 19 兼容性修复",
+      "依赖更新（undici、@types/ws）"
+    ]
+  },
+  {
+    "version": "1.2.5",
+    "date": "2026-02-14",
+    "en": [
+      "Fixed Windows auto-update failing due to file locks during installation"
+    ],
+    "zh": [
+      "修复 Windows 自动更新因文件锁导致安装失败的问题"
+    ]
+  },
+  {
+    "version": "1.2.4",
+    "date": "2026-02-14",
+    "en": [
+      "WeCom: image message support (send and receive)",
+      "Refactored provider setup with unified configuration form",
+      "Added subscription pricing table for providers",
+      "Security: disabled open DM policy option"
+    ],
+    "zh": [
+      "企业微信：支持图片消息收发",
+      "重构服务商设置，统一配置表单",
+      "新增服务商订阅定价表",
+      "安全：禁用开放 DM 策略选项"
+    ]
+  },
+  {
+    "version": "1.2.3",
+    "date": "2026-02-14",
+    "en": [
+      "In-app auto-update: download, verify, and install updates without leaving the app",
+      "Web search now falls back to browser when API is unavailable"
+    ],
+    "zh": [
+      "应用内自动更新：无需离开应用即可下载、验证并安装更新",
+      "网页搜索在 API 不可用时自动回退到浏览器搜索"
+    ]
+  },
+  {
+    "version": "1.2.2",
+    "date": "2026-02-13",
+    "en": [
+      "Fix proxy routing for API key validation",
+      "Improve Windows compatibility",
+      "Polish onboarding OAuth UI flow",
+      "Telemetry: add device ID tracking and fix engagement funnel"
+    ],
+    "zh": [
+      "修复 API Key 验证的代理路由问题",
+      "改进 Windows 兼容性",
+      "优化引导页 OAuth 登录流程",
+      "遥测：添加设备 ID 追踪并修复用户活跃漏斗"
+    ]
+  },
+  {
+    "version": "1.2.1",
+    "date": "2026-02-13",
+    "en": [
+      "Show agent name in sidebar header",
+      "Strip internal metadata from chat messages",
+      "Updated documentation with WeCom relay and Gemini OAuth details"
+    ],
+    "zh": [
+      "侧边栏显示 Agent 名称",
+      "聊天消息中去除内部元数据",
+      "更新文档：企业微信 Relay 和 Gemini OAuth 说明"
+    ]
+  },
+  {
+    "version": "1.2.0",
+    "date": "2026-02-13",
+    "en": [
+      "WeCom Customer Service integration with scene-based auto-binding",
+      "Voice message transcription via speech-to-text",
+      "ARM64 signing and system proxy support for proxy router",
+      "Declare image input support for vision-capable extra models",
+      "Mask API key inputs with password fields for security",
+      "UI polish for WeCom binding flow and channel registration"
+    ],
+    "zh": [
+      "企业微信客服集成，支持场景式自动绑定",
+      "语音消息自动转文字",
+      "ARM64 签名和代理路由器系统代理支持",
+      "为支持视觉的扩展模型声明图片输入能力",
+      "API Key 输入框改为密码字段，提升安全性",
+      "企业微信绑定流程和频道注册 UI 优化"
+    ]
+  },
+  {
+    "version": "1.1.10",
+    "date": "2026-02-12",
+    "en": [
+      "Fix model dropdown clipping and simplify provider setup links",
+      "Resolve npm absolute path before launching gateway",
+      "Default device management policy to pairing mode when not configured"
+    ],
+    "zh": [
+      "修复模型下拉菜单裁剪问题并简化服务商设置链接",
+      "启动网关前解析 npm 绝对路径",
+      "未配置时默认设备管理策略为配对模式"
+    ]
+  },
+  {
+    "version": "1.1.9",
+    "date": "2026-02-12",
+    "en": [
+      "Fix gateway process cleanup on quit (kill entire process tree)",
+      "Bypass proxy for channel API calls",
+      "Enrich PATH for npm discovery in packaged app",
+      "Replace native dialogs with in-app confirm dialogs",
+      "Fix channel account add/edit/delete flow",
+      "Auto-enable channel plugins on account creation",
+      "Fix dropdown clipping in section cards"
+    ],
+    "zh": [
+      "修复退出时网关进程清理（终止整个进程树）",
+      "频道 API 调用绕过代理",
+      "打包应用中增强 PATH 以发现 npm",
+      "原生对话框替换为应用内确认对话框",
+      "修复频道账户增删改流程",
+      "创建频道账户时自动启用插件",
+      "修复下拉菜单被卡片容器裁剪问题"
+    ]
+  },
+  {
+    "version": "1.1.8",
+    "date": "2026-02-12",
+    "en": [
+      "Add GLM-5 and GLM-5-Code model support with pricing"
+    ],
+    "zh": [
+      "新增 GLM-5 和 GLM-5-Code 模型支持及定价"
+    ]
+  },
+  {
+    "version": "1.1.7",
+    "date": "2026-02-11",
+    "en": [
+      "Dark/light theme system with premium UI polish",
+      "UI improvements: channels table, sidebar overflow, onboarding flow",
+      "Rules page: better textarea height, text truncation tooltip, edit alignment",
+      "Windows: remove default menu bar, hide agent name on empty chat"
+    ],
+    "zh": [
+      "深色/浅色主题系统，高级 UI 打磨",
+      "UI 改进：频道列表、侧边栏滚动、引导流程优化",
+      "规则页面：文本框高度、截断提示、编辑对齐修复",
+      "Windows：移除默认菜单栏，空聊天隐藏代理名称"
+    ]
+  },
+  {
+    "version": "1.1.6",
+    "date": "2026-02-11",
+    "en": [
+      "Gemini OAuth: sign in with Google to use Gemini models (no API key needed)",
+      "Chat: improved error handling with clear error messages",
+      "Providers page: UI improvements and provider key management"
+    ],
+    "zh": [
+      "Gemini OAuth：使用 Google 账号登录即可使用 Gemini 模型（无需 API Key）",
+      "聊天：改进错误处理，显示清晰的错误信息",
+      "服务商页面：UI 改进和密钥管理优化"
+    ]
+  },
+  {
+    "version": "1.1.5",
+    "date": "2026-02-11",
+    "en": [
+      "Telemetry: client-side tracking with consent dialog and 21-event taxonomy",
+      "Locale-based endpoint routing (auto-select CN/US telemetry server)",
+      "Dev telemetry toggle for testing",
+      "Generate CN update manifest in release script",
+      "Fix: chat timeout only applies before first streaming delta",
+      "Cleanup: remove leftover wildcard permission code"
+    ],
+    "zh": [
+      "遥测：客户端埋点，含用户同意弹窗和 21 种事件分类",
+      "按语言环境自动路由遥测端点（中国/美国服务器）",
+      "开发模式遥测开关",
+      "发布脚本新增生成中国区更新清单",
+      "修复：聊天超时仅在首次流式响应前生效",
+      "清理：移除多余的通配符权限代码"
+    ]
+  },
+  {
+    "version": "1.1.4",
+    "date": "2026-02-10",
+    "en": [
+      "macOS: clicking the dock icon now restores the window when hidden",
+      "Windows/Linux: clicking the tray icon toggles window visibility"
+    ],
+    "zh": [
+      "macOS：点击 Dock 图标可恢复已隐藏的窗口",
+      "Windows/Linux：点击托盘图标可切换窗口显示/隐藏"
+    ]
+  },
+  {
+    "version": "1.1.3",
+    "date": "2026-02-10",
+    "en": [
+      "Fixed Mac dock icon: prevent child processes from showing extra dock icons",
+      "Minor UI polish for What's New dialog"
+    ],
+    "zh": [
+      "修复 Mac Dock 图标问题：阻止子进程显示多余的 Dock 图标",
+      "「新功能」弹窗 UI 微调"
+    ]
+  },
+  {
+    "version": "1.1.2",
+    "date": "2026-02-10",
+    "en": [
+      "Chat page: collapsible example prompts to help new users get started",
+      "File permissions: full access mode toggle for simplified setup",
+      "Improved file path validation with better glob and home-dir support"
+    ],
+    "zh": [
+      "聊天页面：可折叠的示例提示，帮助新用户快速上手",
+      "文件权限：新增完全访问模式开关，简化权限配置",
+      "优化文件路径验证，改进通配符和主目录路径支持"
+    ]
+  },
+  {
+    "version": "1.1.1",
+    "date": "2026-02-10",
+    "en": [
+      "Volcengine STT voice pipeline integration",
+      "Region-aware update manifest for CDN routing",
+      "Pricing table: CNY support, chat images, sidebar logo & version display",
+      "\"What's New\" changelog modal after version updates",
+      "Chat emoji picker",
+      "API and telemetry endpoints migrated to dedicated subdomains",
+      "Fixed workspace redirect, browser config, permission grants, and provider URLs"
+    ],
+    "zh": [
+      "火山引擎 STT 语音识别接入",
+      "更新检查支持按地区选择 CDN 节点",
+      "价格表增强：人民币显示、聊天图片、侧边栏 Logo 和版本号",
+      "版本更新后弹出「新功能」更新日志",
+      "聊天输入框添加表情选择器",
+      "API 和遥测端点迁移到专用子域名",
+      "修复工作区重定向、浏览器配置、权限授予和服务商链接等问题"
+    ]
+  },
+  {
+    "version": "1.1.0",
+    "date": "2026-02-10",
+    "en": [
+      "Panel now opens in built-in window (no more external browser)",
+      "Minimize to tray when closing the window",
+      "Resizable sidebar with drag handle",
+      "Reduced redundant API requests with smart caching",
+      "Pricing table with scrollable layout"
+    ],
+    "zh": [
+      "面板改为内置窗口打开（不再使用外部浏览器）",
+      "关闭窗口时最小化到托盘",
+      "侧边栏支持拖拽调整宽度",
+      "智能缓存减少重复 API 请求",
+      "价格表支持滚动显示"
+    ]
+  }
+]

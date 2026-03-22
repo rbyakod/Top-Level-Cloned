@@ -1,0 +1,49 @@
+{
+  "name": "@easyclaw/desktop",
+  "version": "1.2.10",
+  "private": true,
+  "main": "dist/main.cjs",
+  "author": "EasyClaw",
+  "description": "Desktop runtime manager for OpenClaw",
+  "scripts": {
+    "build": "tsdown",
+    "dev": "electron-rebuild -f -o better-sqlite3 && tsdown && PANEL_DEV_URL=http://localhost:5180 ELECTRON_RUN_AS_NODE= electron .",
+    "lint": "oxlint",
+    "test": "vitest run",
+    "test:e2e": "playwright test --config e2e/playwright.config.ts",
+    "test:e2e:dev": "playwright test --config e2e/playwright.config.ts",
+    "test:e2e:prod": "E2E_PROD=1 playwright test --config e2e/playwright.config.ts",
+    "pack": "electron-builder --dir",
+    "dist:mac": "node scripts/prune-vendor-deps.cjs && electron-builder --mac",
+    "dist:mac:arm64": "node scripts/prune-vendor-deps.cjs && electron-builder --mac dmg --arm64 && node scripts/sign-arm64.cjs",
+    "dist:win": "node scripts/prune-vendor-deps.cjs && electron-builder --win --config electron-builder.win.yml"
+  },
+  "dependencies": {
+    "@easyclaw/core": "workspace:*",
+    "@easyclaw/device-id": "workspace:*",
+    "@easyclaw/gateway": "workspace:*",
+    "@easyclaw/logger": "workspace:*",
+    "@easyclaw/proxy-router": "workspace:*",
+    "@easyclaw/rules": "workspace:*",
+    "@easyclaw/secrets": "workspace:*",
+    "@easyclaw/storage": "workspace:*",
+    "@easyclaw/stt": "workspace:*",
+    "@easyclaw/telemetry": "workspace:*",
+    "@easyclaw/updater": "workspace:*",
+    "better-sqlite3": "^12.6.2",
+    "undici": "^7.21.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@electron/notarize": "^3.0.0",
+    "@electron/rebuild": "^4.0.3",
+    "@playwright/test": "^1.58.2",
+    "@types/ws": "^8.18.1",
+    "electron": "^40.4.1",
+    "electron-builder": "^26.0.12",
+    "oxlint": "^1.43.0",
+    "playwright": "^1.58.2",
+    "tsdown": "^0.20.3",
+    "vitest": "^4.0.18"
+  }
+}
