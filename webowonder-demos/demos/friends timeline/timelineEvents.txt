@@ -1,0 +1,22 @@
+data: {"from": "paul", "msg": "It's rainy over here today", "location": "Paris"}
+
+data: {"from": "ella", "msg": "I am now a grand-mother", "location": "Austin"}
+
+event: direct
+data: {"from": "yann", "msg": "You should check your inbox", "location": "Boston"}
+
+data: {"from": "pietra", "msg": "Any suggestion for a restaurant in Warsaw?", "location": "Krakow"}
+
+event: checkin
+data: {"from": "Peter", "place": "StarCoffee", "location": "Berlin"}
+
+data: {"from": "judith", "msg": "Walked 52 miles in 24 hours!", "location": "Edinburgh"}
+
+data: {"from": "Ying", "msg": "dreaming of french cheese and red wine, right now.", "location": "Beijing"}
+
+event: forward
+data: {"from": "roland", "through": "Sasha", "msg": "watch this! http://youtu.be/LybAHotsvOg", "location": "Mexico"}
+
+data: {"from": "Sandrine", "msg": "dressed in blue today", "location":"Brussel"}
+
+data: {"from": "anthony", "msg": "what could I do today?", "location": "Rio"}
