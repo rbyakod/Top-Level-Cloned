@@ -1,0 +1,128 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    -webkit-appearance: none;
+}
+
+body {
+    background: linear-gradient(
+            to right bottom,
+            rgba(0, 15, 88, .8),
+            rgba(4, 26, 61, 1));
+    min-height: 100vh;
+    height: fit-content;
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 1.7;
+    color: rgb(36, 36, 36);
+    padding-bottom: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+    html {
+        font-size: 42%;
+    }
+}
+
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    transition: all .2s;
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-.3rem);
+    cursor: pointer;
+}
+
+.btn:active {
+    transform: translateY(-.1rem);
+}
+
+.sidepiece {
+    position: absolute !important;
+    height: 100%;
+    width: 28px;
+    top: 0;
+}
+
+.bottompiece {
+    position: absolute !important;
+    height: 28px;
+    width: calc(100% - 56px);
+    bottom: 0;
+    left: 28px;
+}
+
+.modal {
+    color: rgb(4, 26, 61);
+    box-shadow: 0 10px 50px hsla(0, 0%, 0%, 0.33);
+    background-color: rgb(251,253,253);
+    text-align: center;
+    max-width: 620px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px !important;
+    width: inherit !important;
+    border-radius: 12px;
+}
+
+[data-reach-dialog-content] {
+    width: auto;
+}
+
+@media (max-width: 1024px) {
+    .sidepiece {
+        width: 24px;
+    }
+    .bottompiece {
+        height: 24px;
+        width: calc(100% - 48px);
+        left: 24px;
+    }
+    .modal {
+        max-width: 560px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidepiece {
+        width: 18px;
+    }
+    .bottompiece {
+        height: 18px;
+        width: calc(100% - 36px);
+        left: 18px;
+    }
+    .modal {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidepiece {
+        width: 10px;
+    }
+    .bottompiece {
+        height: 10px;
+        width: calc(100% - 20px);
+        left: 10px;
+    }
+    .modal {
+        max-width: 95%;
+    }
+}
