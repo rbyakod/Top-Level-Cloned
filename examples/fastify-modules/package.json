@@ -1,0 +1,21 @@
+{
+  "name": "example-fastify-modules",
+  "version": "0.13.6",
+  "private": true,
+  "scripts": {
+    "check": "tsc --pretty --noEmit",
+    "start": "ts-node --transpile-only src/index.ts"
+  },
+  "dependencies": {
+    "@envelop/graphql-modules": "6.0.0",
+    "@graphql-tools/load-files": "7.0.0",
+    "fastify": "4.17.0",
+    "graphql-modules": "2.1.2",
+    "graphql-yoga": "5.3.1",
+    "reflect-metadata": "0.1.13"
+  },
+  "devDependencies": {
+    "@types/node": "18.16.16",
+    "ts-node": "10.9.1"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "example-nextjs-auth",
+  "version": "0.13.11",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "check": "tsc --pretty --noEmit",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
+  },
+  "dependencies": {
+    "graphql": "^16.1.0",
+    "graphql-yoga": "5.3.1",
+    "next": "13.4.12",
+    "next-auth": "4.23.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tslib": "2.5.3"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.8",
+    "eslint": "8.42.0",
+    "eslint-config-next": "13.4.12",
+    "typescript": "5.1.6"
+  }
+}
