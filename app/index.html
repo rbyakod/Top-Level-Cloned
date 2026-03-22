@@ -1,0 +1,93 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/app.css"></head>
+<body>
+<br/>
+<h3>Testing simple data binding...</h3>
+<div>
+    <b ng-init='yourName = "Ravi Byakod"' ng-hide=true>Hello, {{ name }}</b>
+
+    <input type="text" ng-model="yourName" placeholder="Enter a name here">
+    <h1>Hello, {{ yourName }}!</h1>
+</div>
+<p> name here : {{ name }}</p>
+
+<h3>Testing binding with a controller....</h3>
+
+<div ng-controller="MyController">
+
+  Name    : {{ person.name }}</br>
+  Address : {{ person.address }}</br>
+  Phone   : {{ person.phone }} </br>
+
+    <div ng-controller="MyChildController">
+        <input type="text" ng-model="person.name" placeholder="Name"/></br>
+        <a href="" ng-click="sayHello()">Say hello</a>
+    </div>
+
+</br>
+    person object from parent: {{ person }}
+</div>
+
+<div>
+    <button ng-click="count = count + 1" ng-init="count=0">
+        Increment
+    </button>
+<span>
+  count: {{count}}
+</span>
+
+</div>
+</br>
+
+<h2>Testing two-way binding....</h2>
+<div ng-controller="CountController">
+    <button ng-click="add(1)" class="button">Add</button>
+    <button ng-click="subtract(1)" class="button">Subtract</button>
+    Current Count = {{ currentCount }}
+</div>
+
+<br/>
+
+<h2>Testing two-way binding with input from user</h2>
+<div ng-controller="CountAmountController">
+    <input type="text" ng-model="amount" value="1" placeholder="Enter an amount"><br/>
+    <button ng-click="add(amount)" class="button">Add</button>
+    <button ng-click="subtract(amount)" class="button">Subtract</button>
+    Current Count = {{ currentCount }}
+</div>
+
+<br/>
+<h2>Testing inheritance ... of scope variables .. no effect of inheritance </h2>
+<div  ng-controller="ParentController">
+    <input type="text" ng-model="title" placeholder="Enter a parent title"><br/>
+    <div ng-controller="ChildController">
+        <input type="text" ng-model="title"  placeholder="Enter a child title">
+        <input type="text" ng-model="childTitle"  placeholder="Enter a child title"><br/>
+    </div>
+</div>
+<br/>
+<br/>
+
+
+<h2>Testing inheritance ... of scope variables ...how to inherit... </h2>
+<div  ng-controller="ParentController2">
+    <input type="text" ng-model="model.title" placeholder="Enter a parent title2"><br/>
+    <div ng-controller="ChildController2">
+        <input type="text" ng-model="model.title"  placeholder="Enter a child title2">
+        <input type="text" ng-model="childTitle"  placeholder="Enter a child title2"><br/>
+    </div>
+</div>
+<br/>
+<br/>
+
+
+
+<!-- angular formly stuff   ------>
+
+
+</body>
+</html>
