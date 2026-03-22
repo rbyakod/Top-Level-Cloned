@@ -1,0 +1,493 @@
+// @vitest-environment jsdom
+import { act, renderHook } from "@testing-library/react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import { interruptTurn } from "../../../services/tauri";
+import {
+  normalizePlanUpdate,
+  normalizeRateLimits,
+  normalizeTokenUsage,
+} from "../utils/threadNormalize";
+import { useThreadTurnEvents } from "./useThreadTurnEvents";
+
+vi.mock("../../../services/tauri", () => ({
+  interruptTurn: vi.fn(),
+}));
+
+vi.mock("../utils/threadNormalize", () => ({
+  asString: (value: unknown) =>
+    typeof value === "string" ? value : value ? String(value) : "",
+  normalizePlanUpdate: vi.fn(),
+  normalizeRateLimits: vi.fn(),
+  normalizeTokenUsage: vi.fn(),
+}));
+
+type SetupOverrides = {
+  pendingInterrupts?: string[];
+  interruptedThreads?: string[];
+};
+
+const makeOptions = (overrides: SetupOverrides = {}) => {
+  const dispatch = vi.fn();
+  const getCustomName = vi.fn();
+  const isAutoTitlePending = vi.fn(() => false);
+  const isThreadHidden = vi.fn(() => false);
+  const markProcessing = vi.fn();
+  const markReviewing = vi.fn();
+  const setActiveTurnId = vi.fn();
+  const pushThreadErrorMessage = vi.fn();
+  const safeMessageActivity = vi.fn();
+  const recordThreadActivity = vi.fn();
+  const renameCustomNameKey = vi.fn();
+  const renameAutoTitlePendingKey = vi.fn();
+  const renameThreadTitleMapping = vi.fn();
+  const pendingInterruptsRef = {
+    current: new Set(overrides.pendingInterrupts ?? []),
+  };
+  const interruptedThreadsRef = {
+    current: new Set(overrides.interruptedThreads ?? []),
+  };
+
+  const { result } = renderHook(() =>
+    useThreadTurnEvents({
+      dispatch,
+      getCustomName,
+      isAutoTitlePending,
+      isThreadHidden,
+      markProcessing,
+      markReviewing,
+      setActiveTurnId,
+      pendingInterruptsRef,
+      interruptedThreadsRef,
+      pushThreadErrorMessage,
+      safeMessageActivity,
+      recordThreadActivity,
+      renameCustomNameKey,
+      renameAutoTitlePendingKey,
+      renameThreadTitleMapping,
+    }),
+  );
+
+  return {
+    result,
+    dispatch,
+    getCustomName,
+    isAutoTitlePending,
+    isThreadHidden,
+    markProcessing,
+    markReviewing,
+    setActiveTurnId,
+    pushThreadErrorMessage,
+    safeMessageActivity,
+    recordThreadActivity,
+    renameCustomNameKey,
+    renameAutoTitlePendingKey,
+    renameThreadTitleMapping,
+    pendingInterruptsRef,
+    interruptedThreadsRef,
+  };
+};
+
+describe("useThreadTurnEvents", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it("upserts thread summaries when a thread starts", () => {
+    const { result, dispatch, recordThreadActivity, safeMessageActivity } =
+      makeOptions();
+
+    act(() => {
+      result.current.onThreadStarted("ws-1", {
+        id: "thread-1",
+        preview: "A brand new thread",
+        updatedAt: 1_700_000_000_000,
+      });
+    });
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "ensureThread",
+      workspaceId: "ws-1",
+      threadId: "thread-1",
+      engine: "codex",
+    });
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "setThreadTimestamp",
+      workspaceId: "ws-1",
+      threadId: "thread-1",
+      timestamp: 1_700_000_000_000,
+    });
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "setThreadName",
+      workspaceId: "ws-1",
+      threadId: "thread-1",
+      name: "A brand new thread",
+    });
+    expect(recordThreadActivity).toHaveBeenCalledWith(
+      "ws-1",
+      "thread-1",
+      1_700_000_000_000,
+    );
+    expect(safeMessageActivity).toHaveBeenCalled();
+  });
+
+  it("does not override custom thread names on thread started", () => {
+    const { result, dispatch, getCustomName } = makeOptions();
+    getCustomName.mockReturnValue("Custom name");
+
+    act(() => {
+      result.current.onThreadStarted("ws-1", {
+        id: "thread-2",
+        preview: "Preview text",
+        updatedAt: 1_700_000_000_100,
+      });
+    });
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "ensureThread",
+      workspaceId: "ws-1",
+      threadId: "thread-2",
+      engine: "codex",
+    });
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({
+        type: "setThreadName",
+        workspaceId: "ws-1",
+        threadId: "thread-2",
+      }),
+    );
+  });
+
+  it("does not override thread name when auto-title generation is pending", () => {
+    const { result, dispatch, isAutoTitlePending } = makeOptions();
+    isAutoTitlePending.mockReturnValue(true);
+
+    act(() => {
+      result.current.onThreadStarted("ws-1", {
+        id: "thread-3",
+        preview: "Preview that should be ignored",
+        updatedAt: 1_700_000_000_300,
+      });
+    });
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "ensureThread",
+      workspaceId: "ws-1",
+      threadId: "thread-3",
+      engine: "codex",
+    });
+    expect(dispatch).not.toHaveBeenCalledWith(
+      expect.objectContaining({
+        type: "setThreadName",
+        workspaceId: "ws-1",
+        threadId: "thread-3",
+      }),
+    );
+  });
+
+  it("ignores thread started events for hidden threads", () => {
+    const { result, dispatch, isThreadHidden, recordThreadActivity, safeMessageActivity } =
+      makeOptions();
+    isThreadHidden.mockReturnValue(true);
+
+    act(() => {
+      result.current.onThreadStarted("ws-1", {
+        id: "thread-hidden",
+        preview: "Hidden thread",
+        updatedAt: 1_700_000_000_200,
+      });
+    });
+
+    expect(dispatch).not.toHaveBeenCalled();
+    expect(recordThreadActivity).not.toHaveBeenCalled();
+    expect(safeMessageActivity).not.toHaveBeenCalled();
+  });
+
+  it("marks processing and active turn on turn started", () => {
+    const { result, dispatch, markProcessing, setActiveTurnId } = makeOptions();
+
+    act(() => {
+      result.current.onTurnStarted("ws-1", "thread-1", "turn-1");
+    });
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "ensureThread",
+      workspaceId: "ws-1",
+      threadId: "thread-1",
+      engine: "codex",
+    });
+    expect(markProcessing).toHaveBeenCalledWith("thread-1", true);
+    expect(setActiveTurnId).toHaveBeenCalledWith("thread-1", "turn-1");
+    expect(interruptTurn).not.toHaveBeenCalled();
+  });
+
+  it("interrupts immediately when a pending interrupt is queued", () => {
+    const { result, markProcessing, setActiveTurnId, pendingInterruptsRef } =
+      makeOptions({ pendingInterrupts: ["thread-1"] });
+    vi.mocked(interruptTurn).mockResolvedValue({});
+
+    act(() => {
+      result.current.onTurnStarted("ws-1", "thread-1", "turn-2");
+    });
+
+    expect(pendingInterruptsRef.current.has("thread-1")).toBe(false);
+    expect(interruptTurn).toHaveBeenCalledWith("ws-1", "thread-1", "turn-2");
+    expect(markProcessing).not.toHaveBeenCalled();
+    expect(setActiveTurnId).not.toHaveBeenCalled();
+  });
+
+  it("clears pending interrupt and active turn on turn completed", () => {
+    const { result, dispatch, markProcessing, setActiveTurnId, pendingInterruptsRef } =
+      makeOptions({ pendingInterrupts: ["thread-1"] });
+
+    act(() => {
+      result.current.onTurnCompleted("ws-1", "thread-1", "turn-1");
+    });
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "finalizePendingToolStatuses",
+      threadId: "thread-1",
+      status: "completed",
+    });
+    expect(markProcessing).toHaveBeenCalledWith("thread-1", false);
+    expect(setActiveTurnId).toHaveBeenCalledWith("thread-1", null);
+    expect(pendingInterruptsRef.current.has("thread-1")).toBe(false);
+  });
+
+  it("renames local mappings when claude pending thread gets real session id", () => {
+    const {
+      result,
+      dispatch,
+      renameCustomNameKey,
+      renameAutoTitlePendingKey,
+      renameThreadTitleMapping,
+    } = makeOptions();
+
+    act(() => {
+      result.current.onThreadSessionIdUpdated(
+        "ws-1",
+        "claude-pending-abc",
+        "session-xyz",
+      );
+    });
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "renameThreadId",
+      workspaceId: "ws-1",
+      oldThreadId: "claude-pending-abc",
+      newThreadId: "claude:session-xyz",
+    });
+    expect(renameCustomNameKey).toHaveBeenCalledWith(
+      "ws-1",
+      "claude-pending-abc",
+      "claude:session-xyz",
+    );
+    expect(renameAutoTitlePendingKey).toHaveBeenCalledWith(
+      "ws-1",
+      "claude-pending-abc",
+      "claude:session-xyz",
+    );
+    expect(renameThreadTitleMapping).toHaveBeenCalledWith(
+      "ws-1",
+      "claude-pending-abc",
+      "claude:session-xyz",
+    );
+  });
+
+  it("dispatches normalized plan updates", () => {
+    const { result, dispatch } = makeOptions();
+    const normalized = { id: "turn-3", steps: [] };
+
+    vi.mocked(normalizePlanUpdate).mockReturnValue(normalized as never);
+
+    act(() => {
+      result.current.onTurnPlanUpdated("ws-1", "thread-1", "turn-3", {
+        explanation: "Plan",
+        plan: [{ id: "step-1" }],
+      });
+    });
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "ensureThread",
+      workspaceId: "ws-1",
+      threadId: "thread-1",
+      engine: "codex",
+    });
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "setThreadPlan",
+      threadId: "thread-1",
+      plan: normalized,
+    });
+  });
+
+  it("dispatches normalized token usage updates", () => {
+    const { result, dispatch } = makeOptions();
+    const normalized = { total: 123 };
+
+    vi.mocked(normalizeTokenUsage).mockReturnValue(normalized as never);
+
+    act(() => {
+      result.current.onThreadTokenUsageUpdated("ws-1", "thread-1", {
+        total: 123,
+      });
+    });
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "ensureThread",
+      workspaceId: "ws-1",
+      threadId: "thread-1",
+      engine: "codex",
+    });
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "setThreadTokenUsage",
+      threadId: "thread-1",
+      tokenUsage: normalized,
+    });
+  });
+
+  it("dispatches normalized rate limits updates", () => {
+    const { result, dispatch } = makeOptions();
+    const normalized = { primary: { usedPercent: 10 } };
+
+    vi.mocked(normalizeRateLimits).mockReturnValue(normalized as never);
+
+    act(() => {
+      result.current.onAccountRateLimitsUpdated("ws-1", { primary: {} });
+    });
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "setRateLimits",
+      workspaceId: "ws-1",
+      rateLimits: normalized,
+    });
+  });
+
+  it("handles turn errors when retries are disabled", () => {
+    const {
+      result,
+      dispatch,
+      markProcessing,
+      markReviewing,
+      setActiveTurnId,
+      pushThreadErrorMessage,
+      safeMessageActivity,
+    } = makeOptions();
+
+    act(() => {
+      result.current.onTurnError("ws-1", "thread-1", "turn-1", {
+        message: "boom",
+        willRetry: false,
+      });
+    });
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "ensureThread",
+      workspaceId: "ws-1",
+      threadId: "thread-1",
+      engine: "codex",
+    });
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "finalizePendingToolStatuses",
+      threadId: "thread-1",
+      status: "failed",
+    });
+    expect(markProcessing).toHaveBeenCalledWith("thread-1", false);
+    expect(markReviewing).toHaveBeenCalledWith("thread-1", false);
+    expect(setActiveTurnId).toHaveBeenCalledWith("thread-1", null);
+    expect(pushThreadErrorMessage).toHaveBeenCalledWith(
+      "thread-1",
+      "会话失败：boom",
+    );
+    expect(safeMessageActivity).toHaveBeenCalled();
+  });
+
+  it("ignores turn errors that will retry", () => {
+    const { result, dispatch, markProcessing } = makeOptions();
+
+    act(() => {
+      result.current.onTurnError("ws-1", "thread-1", "turn-1", {
+        message: "boom",
+        willRetry: true,
+      });
+    });
+
+    expect(dispatch).not.toHaveBeenCalled();
+    expect(markProcessing).not.toHaveBeenCalled();
+  });
+
+  it("appends a context compacted message and records activity", () => {
+    const nowSpy = vi.spyOn(Date, "now").mockReturnValue(2222);
+    const { result, dispatch, recordThreadActivity, safeMessageActivity } = makeOptions();
+
+    act(() => {
+      result.current.onContextCompacted("ws-1", "thread-1", "turn-9");
+    });
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "ensureThread",
+      workspaceId: "ws-1",
+      threadId: "thread-1",
+      engine: "codex",
+    });
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "appendContextCompacted",
+      threadId: "thread-1",
+      turnId: "turn-9",
+    });
+    expect(recordThreadActivity).toHaveBeenCalledWith("ws-1", "thread-1", 2222);
+    expect(safeMessageActivity).toHaveBeenCalled();
+
+    nowSpy.mockRestore();
+  });
+
+  it("suppresses error message for user-interrupted threads", () => {
+    const {
+      result,
+      dispatch,
+      markProcessing,
+      markReviewing,
+      setActiveTurnId,
+      pushThreadErrorMessage,
+      safeMessageActivity,
+      interruptedThreadsRef,
+    } = makeOptions({ interruptedThreads: ["thread-1"] });
+
+    act(() => {
+      result.current.onTurnError("ws-1", "thread-1", "turn-1", {
+        message: "Session stopped.",
+        willRetry: false,
+      });
+    });
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "ensureThread",
+      workspaceId: "ws-1",
+      threadId: "thread-1",
+      engine: "codex",
+    });
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "finalizePendingToolStatuses",
+      threadId: "thread-1",
+      status: "failed",
+    });
+    expect(markProcessing).toHaveBeenCalledWith("thread-1", false);
+    expect(markReviewing).toHaveBeenCalledWith("thread-1", false);
+    expect(setActiveTurnId).toHaveBeenCalledWith("thread-1", null);
+    // Error message should NOT be shown for interrupted threads
+    expect(pushThreadErrorMessage).not.toHaveBeenCalled();
+    expect(safeMessageActivity).toHaveBeenCalled();
+    // Interrupted flag should be cleared
+    expect(interruptedThreadsRef.current.has("thread-1")).toBe(false);
+  });
+
+  it("clears interrupted thread flag on turn completed", () => {
+    const { result, interruptedThreadsRef } = makeOptions({
+      interruptedThreads: ["thread-1"],
+    });
+
+    act(() => {
+      result.current.onTurnCompleted("ws-1", "thread-1", "turn-1");
+    });
+
+    expect(interruptedThreadsRef.current.has("thread-1")).toBe(false);
+  });
+});
