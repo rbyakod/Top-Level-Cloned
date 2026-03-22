@@ -1,0 +1,97 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Project-specific
+.env                    # Environment variables with API keys
+trading_memory.db       # Trading database
+trading_memory.db-shm   # SQLite shared memory
+trading_memory.db-wal   # SQLite write-ahead log
+trade_history_*.json    # Daily trade history files
+*.log                   # Log files
+*.db                    # All database files
+*.db-shm
+*.db-wal
+
+# Backup and temporary files
+*.bak
+*.backup
+*~
+*.tmp
+*.temp
+*.old
+*copy.py
+*copy.md
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Documentation builds
+docs/_build/
+site/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# UV lock file (keep uv.lock but ignore local cache)
+.uv/
+
+# Claude Code
+.claude/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
