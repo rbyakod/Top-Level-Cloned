@@ -1,0 +1,50 @@
+problem_id: authentication-timeout
+description: Users experiencing login timeouts after 30 seconds on mobile devices
+category: authentication
+frequency: high
+impact: critical
+validation_date: 2025-09-01T12:00:00Z
+affected_users: 45%
+source: user_feedback
+priority: p0
+
+# Problem context
+symptoms:
+  - Login attempts fail after 30 seconds
+  - More common on mobile devices
+  - Affects new users more than returning users
+  - Peak occurrence during high traffic periods
+
+# User impact
+user_experience:
+  - Users unable to complete registration
+  - Abandoned cart scenarios
+  - Customer support tickets increase
+  - Revenue impact from blocked conversions
+
+# Technical details
+technical_context:
+  - Timeout configured in auth service
+  - Mobile networks have higher latency
+  - No retry mechanism in place
+  - Current timeout: 30 seconds
+
+# Validation evidence
+evidence:
+  - Support tickets: 23 in last week
+  - Analytics: 15% drop in mobile conversions
+  - User interviews: 5 users confirmed issue
+  - Error logs: timeout errors correlate with complaint times
+
+# Related problems
+related_problems:
+  - slow-mobile-performance
+  - auth-service-reliability
+  - mobile-user-experience
+
+# Success criteria for solution
+success_criteria:
+  - Login success rate >95% on mobile
+  - Support tickets <5 per week
+  - Mobile conversion rate back to baseline
+  - User satisfaction score >4.5/5

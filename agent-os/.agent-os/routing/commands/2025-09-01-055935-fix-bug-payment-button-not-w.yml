@@ -1,0 +1,20 @@
+routing_id: 2025-09-01-055935-fix-bug-payment-button-not-w
+command: /fix-bug
+description: "Fix critical user-facing bug in 15 minutes: payment button not
+  working on checkout page"
+priority: urgent
+time_limit: 15
+workflow_type: fast-track-bug-fix
+agents_required:
+  - qa-engineer
+  - backend-engineer
+  - architect
+created_at: 2025-09-01T05:59:35.821Z
+user_context:
+  parameters: payment button not working on checkout page
+  modifiers:
+    - type: urgency
+      value: critical
+    - type: time_limit
+      value: 15_minutes
+  original_command: /fix-bug payment button not working on checkout page

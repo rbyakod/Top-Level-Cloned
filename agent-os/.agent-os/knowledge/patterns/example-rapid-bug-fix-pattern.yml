@@ -1,0 +1,110 @@
+pattern_id: rapid-bug-fix-pattern
+category: bug_fix
+description: Standard 15-minute approach for critical bug resolution
+frequency: weekly
+success_rate: 95%
+time_savings: 30_minutes_vs_traditional_debugging
+agent_pattern: qa-engineer -> backend-engineer -> qa-engineer
+
+# Pattern steps
+steps:
+  1:
+    name: rapid_diagnosis
+    agent: qa-engineer
+    time_limit: 5_minutes
+    approach: reproduce_bug_identify_scope
+    success_criteria: bug_location_identified
+    
+  2:
+    name: targeted_fix
+    agent: backend-engineer
+    time_limit: 7_minutes
+    approach: minimal_viable_fix
+    success_criteria: bug_resolved_tests_pass
+    
+  3:
+    name: validation_deployment
+    agent: qa-engineer
+    time_limit: 3_minutes
+    approach: verify_fix_deploy_immediately
+    success_criteria: production_validated
+
+# When to apply this pattern
+applicable_when:
+  - Bug impact is critical (>25% users affected)
+  - Bug has clear reproduction steps
+  - Fix scope appears contained
+  - Team has 15 minutes available
+  - Production deployment is possible
+
+# Pattern variants
+variants:
+  frontend_bug:
+    agents: [qa-engineer, frontend-engineer, qa-engineer]
+    typical_fixes: [css_fixes, component_logic, api_integration]
+    
+  backend_bug:
+    agents: [qa-engineer, backend-engineer, qa-engineer]
+    typical_fixes: [api_endpoints, database_queries, business_logic]
+    
+  integration_bug:
+    agents: [qa-engineer, backend-engineer, frontend-engineer, qa-engineer]
+    time_adjustment: +5_minutes
+    typical_fixes: [api_contracts, data_formats, error_handling]
+
+# Common bug types that fit this pattern
+common_types:
+  - Authentication failures
+  - Form validation errors  
+  - API timeout issues
+  - UI component crashes
+  - Data formatting problems
+  - Permission/authorization bugs
+
+# Success indicators
+success_indicators:
+  - Bug fixed within 15 minutes
+  - No regression issues introduced
+  - User-reported issue volume decreases
+  - Team confidence in rapid response increases
+
+# Failure modes and mitigation
+failure_modes:
+  complex_root_cause:
+    indicator: diagnosis_takes_more_than_5_minutes
+    mitigation: escalate_to_ultrathink_workflow
+    
+  multiple_system_involvement:
+    indicator: fix_requires_multiple_services
+    mitigation: switch_to_coordinated_fix_pattern
+    
+  unclear_reproduction:
+    indicator: cannot_reproduce_in_5_minutes
+    mitigation: gather_more_user_data_first
+
+# Knowledge integration
+feeds_into:
+  problems: documents_new_bug_types_encountered
+  solutions: captures_successful_fix_approaches
+  decisions: records_technology_and_approach_choices
+
+# Learning opportunities
+continuous_improvement:
+  - Track which bug types take longer than expected
+  - Identify agents that excel at specific bug categories
+  - Optimize handoff time between agents
+  - Build library of common fix patterns
+
+# Quality gates
+quality_requirements:
+  - Unit tests must pass
+  - Integration test for bug scenario must pass
+  - No new errors in monitoring for 1 hour post-deploy
+  - User confirmation that issue is resolved
+
+# Documentation requirements
+documentation:
+  - Update bug fix in knowledge base
+  - Record solution for similar future issues
+  - Note any system improvements needed
+  - Update monitoring if gap identified

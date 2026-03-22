@@ -1,0 +1,96 @@
+# Agent OS Configuration
+
+# Refer to the official Agent OS documentation at:
+# https://buildermethods.com/agent-os
+
+agent_os_version: 1.4.1
+
+agents:
+  claude_code:
+    enabled: true
+  cursor:
+    enabled: true
+
+# Enhanced Agent OS: Specialized agents for strategic development
+specialized_agents:
+  # Core development agents (standard Agent OS)
+  development:
+    - context-fetcher    # Documentation retrieval
+    - date-checker      # Date determination  
+    - file-creator      # File and directory creation
+    - git-workflow      # Git operations and PR management
+    - project-manager   # Task completion tracking
+    - test-runner       # Test execution and analysis
+  
+  # Strategic agents (Enhanced Agent OS)
+  strategic:
+    - ux-designer       # UI/UX design strategy and user experience
+    - market-researcher # Market analysis and competitive intelligence
+    - business-strategist # Business strategy and use case analysis
+
+project_types:
+  default:
+    instructions: ~/.agent-os/instructions
+    standards: ~/.agent-os/standards
+
+  # Enhanced Agent OS: Solo engineer optimized workflow
+  solo_engineer:
+    instructions: ~/.agent-os/instructions
+    standards: ~/.agent-os/standards
+    agents: [development, strategic]
+    workflows:
+      - enhanced-spec-creation
+      - business-strategy-analysis
+      - design-system-management
+
+  # Enhanced Agent OS: CTO-level strategic workflow
+  startup_cto:
+    instructions: ~/.agent-os/instructions
+    standards: ~/.agent-os/standards  
+    agents: [development, strategic]
+    workflows:
+      - enhanced-spec-creation
+      - business-strategy-analysis
+      - design-system-management
+      - competitive-monitoring
+
+  # type_a:
+  #   instructions: ~/.agent-os/project_types/type_a/instructions
+  #   standards: ~/.agent-os/project_types/type_a/standards
+
+  # type_b:
+  #   instructions: ~/.agent-os/project_types/type_b/instructions
+  #   standards: ~/.agent-os/project_types/type_b/standards
+
+# Default project type (change to solo_engineer for enhanced features)
+default_project_type: default
+
+# Enhanced Agent OS: Additional configuration options
+enhanced_features:
+  # Solo engineer optimizations
+  solo_engineer_mode:
+    auto_market_research: true      # Research before every spec
+    design_system_enforcement: true # Maintain UI consistency  
+    business_case_validation: true  # Validate ROI before development
+    strategic_decision_support: true # CTO-level guidance
+
+  # Business intelligence and reporting
+  reporting:
+    progress_tracking: true         # Weekly development progress
+    business_metrics: true          # Feature success and ROI tracking
+    competitive_analysis: false     # Monthly competitive monitoring
+    technical_debt_monitoring: true # Code quality and debt tracking
+
+# Enhanced Agent OS: Agent behavior settings
+agent_behavior:
+  autonomy_level: high             # Agents make decisions independently
+  intervention_threshold: errors_only # Only ask for help on blocking issues
+  strategic_validation: true       # Validate business decisions
+  user_experience_focus: true     # Prioritize UX in all decisions
+  market_awareness: true          # Consider market context
+
+# Enhanced Agent OS: Backward compatibility
+compatibility:
+  original_workflows: true        # Support original Agent OS workflows
+  legacy_commands: true          # Keep existing command structure
+  migration_support: true        # Help migrate from standard to enhanced

@@ -1,0 +1,569 @@
+version: 1.0.0
+metadata:
+  created: '2025-08-27T10:00:00Z'
+  lastUpdated: '2025-08-27T15:00:00Z'
+  total_agents: 37
+  available_agents: 33
+agents:
+  # Product Team (8 agents)
+  product-owner:
+    id: product-owner
+    name: Product Owner
+    team: product
+    specializations: [user-problem-validation, requirements, product-strategy, stakeholder-management]
+    availability: available
+    performance_metrics:
+      success_rate: 0.92
+      avg_response_time: '30 minutes'
+      current_workload: 3
+      completed_tasks: 85
+      last_seen: '2025-08-27T14:45:00Z'
+    metadata:
+      description: 'Validates user problems and writes requirements with 2-hour validation SLA'
+      
+  product-analyst:
+    id: product-analyst
+    name: Product Analyst
+    team: product
+    specializations: [data-driven-decisions, metrics, analytics, user-behavior]
+    availability: available
+    performance_metrics:
+      success_rate: 0.89
+      avg_response_time: '45 minutes'
+      current_workload: 2
+      completed_tasks: 120
+      last_seen: '2025-08-27T14:50:00Z'
+    metadata:
+      description: 'Provides real-time insights and data-driven product decisions'
+      
+  requirements-writer:
+    id: requirements-writer
+    name: Requirements Writer
+    team: product
+    specializations: [requirements-documentation, prds, specifications, technical-writing]
+    availability: available
+    performance_metrics:
+      success_rate: 0.94
+      avg_response_time: '90 minutes'
+      current_workload: 1
+      completed_tasks: 75
+      last_seen: '2025-08-27T14:30:00Z'
+    metadata:
+      description: 'Creates comprehensive PRDs and specifications with 90-minute SLA'
+
+  market-researcher:
+    id: market-researcher
+    name: Market Researcher
+    team: product
+    specializations: [market-analysis, competitive-intelligence, user-research, trend-analysis]
+    availability: available
+    performance_metrics:
+      success_rate: 0.87
+      avg_response_time: '2 hours'
+      current_workload: 2
+      completed_tasks: 60
+      last_seen: '2025-08-27T14:25:00Z'
+    metadata:
+      description: 'Provides market insights and competitive analysis'
+
+  business-strategist:
+    id: business-strategist
+    name: Business Strategist
+    team: strategy
+    specializations: [business-strategy, planning, strategic-alignment, roadmap-planning]
+    availability: available
+    performance_metrics:
+      success_rate: 0.91
+      avg_response_time: '1 hour'
+      current_workload: 4
+      completed_tasks: 45
+      last_seen: '2025-08-27T14:35:00Z'
+    metadata:
+      description: 'Strategic planning and business alignment'
+
+  growth-engineer:
+    id: growth-engineer
+    name: Growth Engineer
+    team: growth
+    specializations: [growth-experiments, ab-testing, conversion-optimization, user-acquisition]
+    availability: available
+    performance_metrics:
+      success_rate: 0.88
+      avg_response_time: '3 hours'
+      current_workload: 1
+      completed_tasks: 95
+      last_seen: '2025-08-27T14:40:00Z'
+    metadata:
+      description: 'Daily growth experiments and A/B testing'
+
+  content-strategist:
+    id: content-strategist
+    name: Content Strategist
+    team: growth
+    specializations: [content-strategy, seo-optimization, copywriting, marketing-content]
+    availability: available
+    performance_metrics:
+      success_rate: 0.85
+      avg_response_time: '2 hours'
+      current_workload: 3
+      completed_tasks: 110
+      last_seen: '2025-08-27T14:20:00Z'
+    metadata:
+      description: 'Content strategy and SEO optimization for ranking boost'
+
+  customer-success:
+    id: customer-success
+    name: Customer Success Manager
+    team: strategy
+    specializations: [user-satisfaction, customer-support, user-onboarding, retention]
+    availability: available
+    performance_metrics:
+      success_rate: 0.96
+      avg_response_time: '15 minutes'
+      current_workload: 5
+      completed_tasks: 200
+      last_seen: '2025-08-27T14:55:00Z'
+    metadata:
+      description: 'Ensures happy users and successful onboarding'
+
+  # Engineering Team (12 agents)
+  architect:
+    id: architect
+    name: System Architect
+    team: engineering
+    specializations: [system-design, technical-decisions, architecture-patterns, scalability]
+    availability: available
+    performance_metrics:
+      success_rate: 0.95
+      avg_response_time: '30 minutes'
+      current_workload: 2
+      completed_tasks: 65
+      last_seen: '2025-08-27T14:45:00Z'
+    metadata:
+      description: 'System architecture and technical decisions with 30-minute design SLA'
+      
+  backend-engineer:
+    id: backend-engineer
+    name: Backend Engineer
+    team: engineering
+    specializations: [apis, services, databases, server-logic, microservices]
+    availability: available
+    performance_metrics:
+      success_rate: 0.94
+      avg_response_time: '2 hours'
+      current_workload: 3
+      completed_tasks: 150
+      last_seen: '2025-08-27T14:50:00Z'
+    metadata:
+      description: 'Backend services and API development with 2-hour SLA'
+      
+  frontend-engineer:
+    id: frontend-engineer
+    name: Frontend Engineer
+    team: engineering
+    specializations: [react, nextjs, typescript, ui-implementation, web-development]
+    availability: available
+    performance_metrics:
+      success_rate: 0.92
+      avg_response_time: '2 hours'
+      current_workload: 2
+      completed_tasks: 180
+      last_seen: '2025-08-27T14:40:00Z'
+    metadata:
+      description: 'React/Next.js frontend development with 2-hour UI SLA'
+      
+  mobile-engineer:
+    id: mobile-engineer
+    name: Mobile Engineer
+    team: engineering
+    specializations: [react-native, expo, ios, android, mobile-development]
+    availability: busy
+    performance_metrics:
+      success_rate: 0.90
+      avg_response_time: '4 hours'
+      current_workload: 6
+      completed_tasks: 90
+      last_seen: '2025-08-27T14:30:00Z'
+    metadata:
+      description: 'iOS/Android development with 4-hour app SLA'
+      
+  devops-engineer:
+    id: devops-engineer
+    name: DevOps Engineer
+    team: engineering
+    specializations: [cicd, infrastructure, deployment, docker, kubernetes, aws]
+    availability: available
+    performance_metrics:
+      success_rate: 0.97
+      avg_response_time: '15 minutes'
+      current_workload: 1
+      completed_tasks: 220
+      last_seen: '2025-08-27T14:55:00Z'
+    metadata:
+      description: 'CI/CD and infrastructure with 15-minute deploy SLA'
+      
+  security-engineer:
+    id: security-engineer
+    name: Security Engineer
+    team: engineering
+    specializations: [security-review, compliance, vulnerability-assessment, penetration-testing]
+    availability: available
+    performance_metrics:
+      success_rate: 0.98
+      avg_response_time: '1 hour'
+      current_workload: 2
+      completed_tasks: 80
+      last_seen: '2025-08-27T14:35:00Z'
+    metadata:
+      description: 'Security review and compliance with 1-hour audit SLA'
+      
+  database-architect:
+    id: database-architect
+    name: Database Architect
+    team: engineering
+    specializations: [data-modeling, database-optimization, sql, nosql, performance-tuning]
+    availability: available
+    performance_metrics:
+      success_rate: 0.93
+      avg_response_time: '1 hour'
+      current_workload: 3
+      completed_tasks: 100
+      last_seen: '2025-08-27T14:25:00Z'
+    metadata:
+      description: 'Data modeling and optimization with 1-hour schema SLA'
+      
+  api-designer:
+    id: api-designer
+    name: API Designer
+    team: engineering
+    specializations: [rest-api, graphql, api-design, api-documentation, openapi]
+    availability: available
+    performance_metrics:
+      success_rate: 0.91
+      avg_response_time: '30 minutes'
+      current_workload: 1
+      completed_tasks: 125
+      last_seen: '2025-08-27T14:50:00Z'
+    metadata:
+      description: 'REST/GraphQL design with 30-minute contract SLA'
+      
+  performance-engineer:
+    id: performance-engineer
+    name: Performance Engineer
+    team: engineering
+    specializations: [performance-optimization, load-testing, profiling, caching]
+    availability: available
+    performance_metrics:
+      success_rate: 0.89
+      avg_response_time: '2 hours'
+      current_workload: 2
+      completed_tasks: 70
+      last_seen: '2025-08-27T14:20:00Z'
+    metadata:
+      description: 'Speed optimization delivering 2x faster performance'
+      
+  cloud-architect:
+    id: cloud-architect
+    name: Cloud Architect
+    team: engineering
+    specializations: [aws, gcp, azure, cloud-architecture, serverless, scaling]
+    availability: available
+    performance_metrics:
+      success_rate: 0.94
+      avg_response_time: '45 minutes'
+      current_workload: 4
+      completed_tasks: 55
+      last_seen: '2025-08-27T14:40:00Z'
+    metadata:
+      description: 'AWS/GCP/Azure architecture for scalable design'
+
+  full-stack-engineer:
+    id: full-stack-engineer
+    name: Full Stack Engineer
+    team: engineering
+    specializations: [full-stack, javascript, typescript, databases, apis, frontend, backend]
+    availability: available
+    performance_metrics:
+      success_rate: 0.88
+      avg_response_time: '3 hours'
+      current_workload: 5
+      completed_tasks: 140
+      last_seen: '2025-08-27T14:15:00Z'
+    metadata:
+      description: 'End-to-end development across frontend and backend'
+
+  site-reliability-engineer:
+    id: site-reliability-engineer
+    name: Site Reliability Engineer
+    team: engineering
+    specializations: [monitoring, observability, incident-response, reliability, uptime]
+    availability: available
+    performance_metrics:
+      success_rate: 0.96
+      avg_response_time: '10 minutes'
+      current_workload: 2
+      completed_tasks: 160
+      last_seen: '2025-08-27T14:58:00Z'
+    metadata:
+      description: 'System reliability and incident response'
+
+  # Design Team (5 agents)
+  ux-designer:
+    id: ux-designer
+    name: UX Designer
+    team: design
+    specializations: [user-experience, wireframes, user-journey, usability-testing]
+    availability: available
+    performance_metrics:
+      success_rate: 0.93
+      avg_response_time: '30 minutes'
+      current_workload: 2
+      completed_tasks: 95
+      last_seen: '2025-08-27T14:45:00Z'
+    metadata:
+      description: 'User experience strategy with 30-minute wireframe SLA'
+      
+  ui-designer:
+    id: ui-designer
+    name: UI Designer
+    team: design
+    specializations: [visual-design, prototypes, design-systems, branding, typography]
+    availability: available
+    performance_metrics:
+      success_rate: 0.91
+      avg_response_time: '1 hour'
+      current_workload: 3
+      completed_tasks: 110
+      last_seen: '2025-08-27T14:30:00Z'
+    metadata:
+      description: 'Visual design and prototypes with 1-hour mockup SLA'
+      
+  ux-researcher:
+    id: ux-researcher
+    name: UX Researcher
+    team: design
+    specializations: [user-testing, user-interviews, usability-research, validation]
+    availability: available
+    performance_metrics:
+      success_rate: 0.89
+      avg_response_time: '30 minutes'
+      current_workload: 1
+      completed_tasks: 85
+      last_seen: '2025-08-27T14:50:00Z'
+    metadata:
+      description: 'User testing and validation with 30-minute test SLA'
+      
+  design-systems-architect:
+    id: design-systems-architect
+    name: Design Systems Architect
+    team: design
+    specializations: [component-libraries, design-tokens, design-systems, consistency]
+    availability: available
+    performance_metrics:
+      success_rate: 0.95
+      avg_response_time: '2 hours'
+      current_workload: 2
+      completed_tasks: 60
+      last_seen: '2025-08-27T14:25:00Z'
+    metadata:
+      description: 'Component libraries for consistent UI'
+      
+  accessibility-specialist:
+    id: accessibility-specialist
+    name: Accessibility Specialist
+    team: design
+    specializations: [wcag-compliance, accessibility-testing, inclusive-design, screen-readers]
+    availability: available
+    performance_metrics:
+      success_rate: 0.97
+      avg_response_time: '1 hour'
+      current_workload: 1
+      completed_tasks: 70
+      last_seen: '2025-08-27T14:35:00Z'
+    metadata:
+      description: 'WCAG compliance and inclusive design'
+
+  # Quality Team (4 agents)
+  qa-engineer:
+    id: qa-engineer
+    name: QA Engineer
+    team: quality
+    specializations: [testing, quality-assurance, bug-detection, test-planning]
+    availability: available
+    performance_metrics:
+      success_rate: 0.96
+      avg_response_time: '15 minutes'
+      current_workload: 3
+      completed_tasks: 180
+      last_seen: '2025-08-27T14:52:00Z'
+    metadata:
+      description: 'Testing and quality assurance with 15-minute validation SLA'
+      
+  qa-lead:
+    id: qa-lead
+    name: QA Lead
+    team: quality
+    specializations: [test-strategy, test-planning, quality-metrics, team-coordination]
+    availability: available
+    performance_metrics:
+      success_rate: 0.94
+      avg_response_time: '45 minutes'
+      current_workload: 4
+      completed_tasks: 90
+      last_seen: '2025-08-27T14:40:00Z'
+    metadata:
+      description: 'Test strategy and planning for comprehensive coverage'
+      
+  test-automation:
+    id: test-automation
+    name: Test Automation Engineer
+    team: quality
+    specializations: [automated-testing, selenium, cypress, test-frameworks, ci-cd-testing]
+    availability: busy
+    performance_metrics:
+      success_rate: 0.92
+      avg_response_time: '1 hour'
+      current_workload: 7
+      completed_tasks: 130
+      last_seen: '2025-08-27T14:20:00Z'
+    metadata:
+      description: 'Automated testing CI/CD ready'
+      
+  release-manager:
+    id: release-manager
+    name: Release Manager
+    team: quality
+    specializations: [deployment-coordination, release-planning, risk-management, rollback-procedures]
+    availability: available
+    performance_metrics:
+      success_rate: 0.98
+      avg_response_time: '30 minutes'
+      current_workload: 2
+      completed_tasks: 75
+      last_seen: '2025-08-27T14:55:00Z'
+    metadata:
+      description: 'Deployment coordination for smooth releases'
+
+  # Data & AI Team (3 agents)
+  data-scientist:
+    id: data-scientist
+    name: Data Scientist
+    team: data_ai
+    specializations: [analytics, ml-models, statistical-analysis, data-insights]
+    availability: available
+    performance_metrics:
+      success_rate: 0.87
+      avg_response_time: '2 hours'
+      current_workload: 3
+      completed_tasks: 65
+      last_seen: '2025-08-27T14:30:00Z'
+    metadata:
+      description: 'Analytics and ML models for data insights'
+      
+  ai-researcher:
+    id: ai-researcher
+    name: AI Researcher
+    team: data_ai
+    specializations: [ai-integration, machine-learning, llm-integration, smart-features]
+    availability: available
+    performance_metrics:
+      success_rate: 0.85
+      avg_response_time: '3 hours'
+      current_workload: 4
+      completed_tasks: 45
+      last_seen: '2025-08-27T14:25:00Z'
+    metadata:
+      description: 'AI/ML integration for smart features'
+      
+  ml-engineer:
+    id: ml-engineer
+    name: ML Engineer
+    team: data_ai
+    specializations: [model-deployment, production-ml, mlops, model-monitoring]
+    availability: available
+    performance_metrics:
+      success_rate: 0.90
+      avg_response_time: '4 hours'
+      current_workload: 2
+      completed_tasks: 55
+      last_seen: '2025-08-27T14:45:00Z'
+    metadata:
+      description: 'Model deployment for production ML'
+
+  # Technical Writing
+  technical-writer:
+    id: technical-writer
+    name: Technical Writer
+    team: strategy
+    specializations: [documentation, technical-writing, api-docs, user-guides]
+    availability: available
+    performance_metrics:
+      success_rate: 0.93
+      avg_response_time: '2 hours'
+      current_workload: 3
+      completed_tasks: 120
+      last_seen: '2025-08-27T14:40:00Z'
+    metadata:
+      description: 'Clear documentation and technical writing'
+
+  # Rapid Response Team (2 agents)
+  incident-commander:
+    id: incident-commander
+    name: Incident Commander
+    team: rapid_response
+    specializations: [critical-issues, incident-response, crisis-management, emergency-coordination]
+    availability: available
+    performance_metrics:
+      success_rate: 0.99
+      avg_response_time: '2 minutes'
+      current_workload: 0
+      completed_tasks: 25
+      last_seen: '2025-08-27T14:58:00Z'
+    metadata:
+      description: 'Critical issue response with 2-minute response SLA'
+      
+  support-engineer:
+    id: support-engineer
+    name: Support Engineer
+    team: rapid_response
+    specializations: [user-support, troubleshooting, bug-fixes, customer-issues]
+    availability: available
+    performance_metrics:
+      success_rate: 0.94
+      avg_response_time: '15 minutes'
+      current_workload: 1
+      completed_tasks: 250
+      last_seen: '2025-08-27T14:50:00Z'
+    metadata:
+      description: 'User support with 15-minute resolution SLA'
+
+  # Additional specialized agents
+  analytics-engineer:
+    id: analytics-engineer
+    name: Analytics Engineer
+    team: data_ai
+    specializations: [data-pipelines, etl, data-warehousing, real-time-data]
+    availability: busy
+    performance_metrics:
+      success_rate: 0.91
+      avg_response_time: '3 hours'
+      current_workload: 6
+      completed_tasks: 85
+      last_seen: '2025-08-27T14:15:00Z'
+    metadata:
+      description: 'Data pipelines for real-time data processing'
+
+  marketing-analyst:
+    id: marketing-analyst
+    name: Marketing Analyst
+    team: growth
+    specializations: [campaign-analysis, roi-tracking, marketing-metrics, attribution]
+    availability: available
+    performance_metrics:
+      success_rate: 0.88
+      avg_response_time: '1 hour'
+      current_workload: 2
+      completed_tasks: 95
+      last_seen: '2025-08-27T14:42:00Z'
+    metadata:
+      description: 'Campaign analysis and ROI tracking'

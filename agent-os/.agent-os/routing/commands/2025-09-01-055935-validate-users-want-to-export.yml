@@ -1,0 +1,20 @@
+routing_id: 2025-09-01-055935-validate-users-want-to-export
+command: /validate
+description: "Validate a user problem in 2 hours: users want to export their
+  data to CSV format"
+priority: high
+time_limit: 120
+workflow_type: rapid-validation
+agents_required:
+  - ux-researcher
+  - product-owner
+  - ui-designer
+created_at: 2025-09-01T05:59:35.827Z
+user_context:
+  parameters: users want to export their data to CSV format
+  modifiers:
+    - type: research_method
+      value: user_interviews
+    - type: sample_size
+      value: 5_users
+  original_command: /validate users want to export their data to CSV format

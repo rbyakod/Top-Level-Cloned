@@ -1,0 +1,169 @@
+# User Context Template
+# One file per user for preference and history tracking
+
+user_id: "{{USER_ID}}"
+name: "{{USER_NAME}}"
+created: "{{CREATED_DATE}}"
+last_active: "{{LAST_ACTIVE}}"
+status: active
+
+# User preferences
+preferences:
+  # Technology stack preferences
+  default_stack: next.js
+  testing_framework: jest
+  deployment_platform: vercel
+  database: postgresql
+  styling: tailwind
+  
+  # Workflow preferences  
+  preferred_workflow_pace: rapid # rapid|standard|thorough
+  communication_style: concise # concise|detailed|technical
+  risk_tolerance: medium # low|medium|high
+  
+  # Agent preferences
+  preferred_agents: []
+  avoided_agents: []
+  
+  # Time preferences
+  typical_session_length: 2_hours
+  preferred_time_blocks: 4_hour_mvp # 15_minute_fix|2_hour_validation|4_hour_mvp
+  
+  # Quality vs speed preference
+  quality_speed_balance: balanced # speed_first|balanced|quality_first
+
+# Learning from this user
+success_patterns:
+  workflows:
+    "/fix-bug":
+      attempts: 0
+      successes: 0
+      average_time: null
+      success_rate: null
+    "/build-mvp":
+      attempts: 0
+      successes: 0
+      average_time: null
+      success_rate: null
+    "/validate":
+      attempts: 0
+      successes: 0
+      average_time: null
+      success_rate: null
+  
+  agents:
+    # Will be populated as user works with agents
+    # agent_name:
+    #   interactions: 5
+    #   satisfaction_avg: 8.5/10
+    #   success_rate: 90%
+    #   preferred_for: [task_type1, task_type2]
+
+# User feedback history
+feedback:
+  total_given: 0
+  positive: 0
+  negative: 0
+  suggestions: 0
+  
+  # Recent feedback trends
+  recent_satisfaction: null # average over last 10 interactions
+  improvement_areas: []
+  strength_areas: []
+
+# User behavior patterns
+behavior:
+  # Session patterns
+  typical_session_start_time: null
+  average_session_duration: null
+  sessions_per_week: null
+  
+  # Work patterns
+  most_common_workflows: []
+  most_successful_approaches: []
+  common_challenges: []
+  
+  # Learning patterns
+  learning_speed: null # how quickly user adapts to new patterns
+  adoption_rate: null # how often user follows agent recommendations
+
+# User expertise areas
+expertise:
+  # Technical skills
+  programming_languages: []
+  frameworks: []
+  tools: []
+  domains: []
+  
+  # Experience level
+  overall_level: beginner # beginner|intermediate|expert
+  specific_areas: {}
+  
+  # Learning goals
+  wants_to_learn: []
+  avoiding_technologies: []
+
+# Personalization data
+personalization:
+  # Communication adaptations
+  preferred_explanation_depth: medium # brief|medium|detailed
+  preferred_code_style: standard
+  preferred_naming_conventions: camelCase
+  
+  # Workflow adaptations
+  needs_more_guidance: false
+  prefers_automation: true
+  wants_learning_opportunities: true
+  
+  # Error handling preferences
+  error_tolerance: medium
+  prefers_safe_approaches: true
+  comfortable_with_experimental: false
+
+# Context integration
+integration:
+  # With knowledge base
+  contributes_problems: true
+  adopts_solutions: true
+  follows_patterns: true
+  learns_from_decisions: true
+  
+  # With other users (if applicable)
+  collaboration_style: null
+  mentoring_preference: null
+  knowledge_sharing: true
+
+# Privacy and permissions
+privacy:
+  data_retention_consent: true
+  analytics_consent: true
+  learning_contribution_consent: true
+  session_recording_consent: false
+
+# Success metrics for this user
+success_metrics:
+  # Productivity
+  tasks_completed_per_session: null
+  time_to_complete_workflows: {}
+  
+  # Satisfaction
+  overall_satisfaction: null
+  system_usefulness_rating: null
+  likelihood_to_recommend: null
+  
+  # Learning
+  skill_improvement_rate: null
+  technology_adoption_success: null
+  workflow_optimization_achieved: null
+
+# Goals and tracking
+goals:
+  # Current goals
+  current_focus: null
+  learning_objectives: []
+  productivity_targets: []
+  
+  # Progress tracking
+  goal_completion_rate: null
+  milestone_achievements: []
+  areas_for_improvement: []

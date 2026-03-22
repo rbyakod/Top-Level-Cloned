@@ -1,0 +1,14 @@
+feedback_type: agent
+rating: 3
+satisfaction: neutral
+specific_issues:
+  - issue_type: slow
+    description: API endpoints took longer than expected
+    severity: medium
+suggestions:
+  - Could improve communication during implementation
+context:
+  agents_involved:
+    - backend-specialist
+feedback_id: feedback-2025-09-01T055935829-576w9v
+created_at: 2025-09-01T05:59:35.829Z

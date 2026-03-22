@@ -1,0 +1,18 @@
+routing_id: 2025-09-01-055936-fix-bug-user-authentication-
+command: /fix-bug
+description: "Fix critical user-facing bug in 15 minutes: user authentication
+  failing after password reset"
+priority: urgent
+time_limit: 15
+workflow_type: fast-track-bug-fix
+agents_required:
+  - qa-engineer
+  - backend-engineer
+  - architect
+created_at: 2025-09-01T05:59:36.003Z
+user_context:
+  parameters: user authentication failing after password reset
+  modifiers:
+    - type: urgency
+      value: critical
+  original_command: /fix-bug user authentication failing after password reset

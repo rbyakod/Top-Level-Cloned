@@ -1,0 +1,88 @@
+# Session Context Template
+# Copy and customize for each new session
+
+session_id: "session-{{DATE}}-{{TIME}}"
+start_time: "{{TIMESTAMP}}"
+user_id: "{{USER_ID}}"
+project: "agent-os-v2"
+status: active
+
+# Current workflow state
+current_workflow: null
+workflow_state: idle
+step: null
+agents_active: []
+estimated_completion: null
+
+# Session objectives
+objectives:
+  primary: "{{PRIMARY_OBJECTIVE}}"
+  secondary: []
+  success_criteria: []
+
+# Decisions made this session
+decisions: []
+# Format for decisions:
+# - timestamp: 2025-09-01T12:35:00Z
+#   type: technology_choice|workflow_approach|agent_assignment
+#   choice: selected_option
+#   reasoning: explanation
+#   alternatives_considered: [option1, option2]
+
+# Problems encountered
+problems: []
+# Format for problems:
+# - timestamp: 2025-09-01T12:40:00Z
+#   type: technical_issue|workflow_bottleneck|agent_coordination
+#   description: problem_description
+#   resolution: how_it_was_resolved
+#   time_impact: minutes_lost
+
+# Knowledge captured
+learned: []
+# Format for learning:
+# - pattern: pattern_name
+#   success: true|false
+#   time_saved: minutes
+#   applicable_to: [context1, context2]
+#   confidence: high|medium|low
+
+# Artifacts created
+artifacts: []
+# Format for artifacts:
+# - type: code|documentation|configuration|analysis
+#   path: file_path
+#   description: what_it_contains
+#   importance: critical|important|reference
+
+# Agent performance this session
+agent_performance: {}
+# Format:
+# agent_name:
+#   tasks_completed: 3
+#   average_time: 12_minutes
+#   success_rate: 100%
+#   user_satisfaction: 9/10
+
+# Context for next session
+continuation_context:
+  pending_tasks: []
+  blocked_items: []
+  next_priorities: []
+  recommended_approach: ""
+
+# Session metrics
+metrics:
+  total_duration: null
+  productive_time: null
+  coordination_overhead: null
+  context_switching_time: null
+  
+# End session summary
+summary:
+  completed: false
+  end_time: null
+  success_rating: null
+  key_achievements: []
+  lessons_learned: []
+  follow_up_actions: []
