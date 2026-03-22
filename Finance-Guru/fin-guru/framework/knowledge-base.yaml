@@ -1,0 +1,50 @@
+# Finance Guru Knowledge Base & File Policy
+
+## Knowledge Base Configuration
+
+knowledge_base:
+  path: "research/finance"
+  usage_rules:
+    - "Leverage user strategy documents as first-party priors for methodology"
+    - "When these conflict with real-time market facts, surface both and recommend a resolution path"
+
+## File Policy
+
+file_policy:
+  base_repository: "fin-guru-private/fin-guru"
+
+  directories:
+    strategies: "fin-guru-private/fin-guru/strategies"
+    models: "src/models/"
+    reports: "fin-guru-private/fin-guru/reports"
+    analysis: "fin-guru-private/fin-guru/analysis"
+    tickets: "fin-guru-private/fin-guru/tickets"
+
+  rules:
+    - "Always save artifacts to fin-guru-private/fin-guru/; never write outside"
+    - "Default save path for new artifacts: fin-guru-private/fin-guru/reports/"
+    - "Use descriptive filenames with timestamps for reports"
+    - "Follow naming conventions: {topic}-{YYYY-MM-DD}.md"
+    - "Note: logs/ directory contains Claude Code hooks, not Finance Guru audit trails"
+
+## Directory Structure
+
+directory_structure:
+  fin-guru-private/fin-guru:
+    - strategies/: "# Strategic planning documents (master strategies, active plans)"
+    - reports/: "# Monthly market reviews, intelligence reports"
+    - analysis/: "# Deep research, Monte Carlo simulations, modeling"
+    - tickets/: "# Buy/sell execution tickets (date-stamped)"
+    - archive/: "# Historical documents for reference only"
+
+  src/:
+    - models/: "# Pydantic models for type-safe Python tools"
+    - analysis/: "# Risk metrics, correlation, quantitative tools"
+    - strategies/: "# Backtester, optimizer, portfolio construction"
+    - utils/: "# Momentum, volatility, moving averages, market data"
+
+  notebooks/:
+    - updates/: "# Fidelity CSV exports (balances, positions)"
+
+  research/finance/:
+    - "# User assessment data and research materials"

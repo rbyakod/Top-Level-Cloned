@@ -1,0 +1,16 @@
+{
+  "name": "family-office",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "uv run pytest tests/python/ -v",
+    "typecheck": "echo 'Python project - typecheck skipped'"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

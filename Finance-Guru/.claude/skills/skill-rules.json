@@ -1,0 +1,229 @@
+{
+    "version": "1.0",
+    "description": "Skill activation triggers for Claude Code. Controls when skills automatically suggest or block actions.",
+    "skills": {
+        "PortfolioSyncing": {
+            "type": "domain",
+            "enforcement": "block",
+            "priority": "critical",
+            "description": "Import and sync Fidelity CSV portfolio data to Google Sheets DataHub. USE WHEN user mentions import fidelity OR sync portfolio OR update positions OR CSV import OR portfolio-sync. Handles position updates, SPAXX/margin validation, safety checks, and formula protection.",
+            "promptTriggers": {
+                "keywords": [
+                    "import fidelity",
+                    "fidelity csv",
+                    "sync portfolio",
+                    "update positions",
+                    "portfolio import",
+                    "csv import",
+                    "portfolio sync",
+                    "portfolio-sync",
+                    "fidelity export",
+                    "import csv",
+                    "sync positions"
+                ],
+                "intentPatterns": [
+                    "(import|update|sync|load).*?(fidelity|portfolio|positions|csv)",
+                    "new.*?(fidelity csv|portfolio export)",
+                    "(update|refresh).*?(portfolio|positions).*?(fidelity|csv)",
+                    "(import|sync).*?(portfolio_positions|positions csv)"
+                ]
+            },
+            "fileTriggers": {
+                "pathPatterns": [
+                    "notebooks/updates/DataHub_*.csv",
+                    "notebooks/updates/Balances_for_Account_*.csv"
+                ],
+                "contentPatterns": [
+                    "Symbol,Quantity",
+                    "Average Cost Basis",
+                    "DataHub",
+                    "Account Number,Account Name,Symbol"
+                ]
+            }
+        },
+        "dividend-tracking": {
+            "type": "domain",
+            "enforcement": "suggest",
+            "priority": "high",
+            "description": "Sync dividend portfolio data between Portfolio Positions and Dividend Tracker. Cross-references Layer 2 holdings, updates shares, calculates income.",
+            "promptTriggers": {
+                "keywords": [
+                    "dividend tracker",
+                    "sync dividends",
+                    "update dividends",
+                    "dividend income",
+                    "layer 2 income",
+                    "dividend portfolio",
+                    "drip status",
+                    "dividend payments",
+                    "expected dividends",
+                    "monthly income"
+                ],
+                "intentPatterns": [
+                    "(sync|update|refresh).*?(dividend tracker|dividends)",
+                    "(calculate|check).*?(dividend income|expected dividends)",
+                    "update.*?(layer 2|income portfolio)",
+                    "(add|track).*?(dividend fund|income fund)"
+                ]
+            },
+            "fileTriggers": {
+                "pathPatterns": [
+                    "fin-guru/data/*dividend*.md",
+                    "fin-guru-private/fin-guru/strategies/active/*dividend*.md",
+                    "fin-guru/data/user-profile.yaml"
+                ]
+            }
+        },
+        "margin-management": {
+            "type": "domain",
+            "enforcement": "block",
+            "priority": "critical",
+            "description": "Update Margin Dashboard with Fidelity balances. Calculates margin metrics, coverage ratios, safety thresholds, and provides scaling recommendations.",
+            "promptTriggers": {
+                "keywords": [
+                    "margin dashboard",
+                    "update margin",
+                    "margin balance",
+                    "margin strategy",
+                    "margin living",
+                    "coverage ratio",
+                    "margin scaling",
+                    "margin interest",
+                    "portfolio to margin ratio",
+                    "margin draw"
+                ],
+                "intentPatterns": [
+                    "(update|sync|check).*?(margin|margin balance|margin dashboard)",
+                    "(calculate|check).*?(coverage ratio|margin interest)",
+                    "margin.*?(strategy|scaling|alert|threshold)",
+                    "update.*?(balances|fidelity balances)"
+                ]
+            },
+            "fileTriggers": {
+                "pathPatterns": [
+                    "notebooks/updates/Balances_for_Account_*.csv",
+                    "fin-guru/data/*margin*.md",
+                    "fin-guru-private/fin-guru/strategies/active/*margin*.md"
+                ]
+            }
+        },
+        "formula-protection": {
+            "type": "guardrail",
+            "enforcement": "block",
+            "priority": "critical",
+            "description": "Prevent accidental modification of sacred spreadsheet formulas. Blocks edits to GOOGLEFINANCE, calculated columns. Allows only IFERROR wrappers and safe repairs.",
+            "promptTriggers": {
+                "keywords": [
+                    "update formula",
+                    "modify formula",
+                    "change formula",
+                    "fix formula",
+                    "edit cell",
+                    "update column c",
+                    "update column d",
+                    "update column e",
+                    "googlefinance",
+                    "formula error",
+                    "#n/a",
+                    "#div/0!",
+                    "#ref!"
+                ],
+                "intentPatterns": [
+                    "(update|modify|change|edit|fix).*?(formula|column [C-F]|column [H-S])",
+                    "(change|update).*?(last price|current value|total g/l)",
+                    "fix.*?(#N/A|#DIV/0!|#REF!|formula error)",
+                    "(edit|modify|update).*?(spreadsheet formula|google sheets formula)"
+                ]
+            },
+            "fileTriggers": {
+                "pathPatterns": [
+                    "fin-guru/data/spreadsheet-*.md"
+                ]
+            }
+        },
+        "retirement-syncing": {
+            "type": "domain",
+            "enforcement": "suggest",
+            "priority": "high",
+            "description": "Sync retirement account data from Vanguard and Fidelity CSV exports to Google Sheets DataHub retirement section. Aggregates holdings by ticker and updates quantities.",
+            "promptTriggers": {
+                "keywords": [
+                    "sync retirement",
+                    "update retirement",
+                    "retirement accounts",
+                    "vanguard sync",
+                    "401k update",
+                    "ira sync",
+                    "retirement quantities",
+                    "retirement positions",
+                    "vanguard ira",
+                    "fidelity 401k"
+                ],
+                "intentPatterns": [
+                    "(sync|update|refresh).*?(retirement|vanguard|401k|ira)",
+                    "(import|load).*?(retirement|vanguard csv|401k)",
+                    "update.*?(retirement accounts|retirement quantities)",
+                    "(sync|update).*?(retirement section|retirement holdings)"
+                ]
+            },
+            "fileTriggers": {
+                "pathPatterns": [
+                    "notebooks/retirement-accounts/*.csv",
+                    "notebooks/retirement-accounts/OfxDownload*.csv",
+                    "notebooks/retirement-accounts/Portfolio_Positions_*.csv"
+                ]
+            }
+        },
+        "FinanceReport": {
+            "type": "domain",
+            "enforcement": "suggest",
+            "priority": "high",
+            "description": "Generate institutional-quality PDF analysis reports for stocks and ETFs. Includes VGT-style headers, embedded charts, portfolio sizing, and Perplexity sentiment integration.",
+            "promptTriggers": {
+                "keywords": [
+                    "generate report",
+                    "create pdf",
+                    "stock analysis",
+                    "ticker report",
+                    "watchlist analysis",
+                    "analysis report",
+                    "investment report",
+                    "research report",
+                    "regenerate reports",
+                    "full analysis"
+                ],
+                "intentPatterns": [
+                    "(generate|create|make|build).*?(report|pdf|analysis)",
+                    "(full|thorough|comprehensive|deep).*?(analysis|research)",
+                    "(analyze|research).*?(stock|ticker|etf)",
+                    "regenerate.*?(batch|reports|watchlist)"
+                ]
+            },
+            "fileTriggers": {
+                "pathPatterns": [
+                    "fin-guru-private/fin-guru/analysis/reports/*.pdf",
+                    "fin-guru-private/fin-guru/analysis/*watchlist*.md",
+                    "scripts/reports/generate_*_report.py"
+                ]
+            }
+        }
+    },
+    "notes": {
+        "enforcement_types": {
+            "suggest": "Skill suggestion appears but doesn't block execution",
+            "block": "Requires skill to be used before proceeding (guardrail)",
+            "warn": "Shows warning but allows proceeding"
+        },
+        "priority_levels": {
+            "critical": "Highest - Always trigger when matched",
+            "high": "Important - Trigger for most matches",
+            "medium": "Moderate - Trigger for clear matches",
+            "low": "Optional - Trigger only for explicit matches"
+        },
+        "customization": {
+            "pathPatterns": "Adjust to match your project structure (blog-api, auth-service, etc.)",
+            "keywords": "Add domain-specific terms relevant to your project",
+            "intentPatterns": "Use regex for flexible user intent matching"
+        }
+    }
+}

@@ -1,0 +1,43 @@
+[project]
+name = "family-office"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.13.5",
+    "matplotlib>=3.10.8",
+    "numpy>=2.3.3",
+    "openpyxl>=3.1.5",
+    "pandas>=2.3.2",
+    "plotly>=6.3.0",
+    "pydantic>=2.10.6",
+    "python-dotenv>=1.1.1",
+    "pyyaml>=6.0.3",
+    "reportlab>=4.4.5",
+    "requests>=2.32.5",
+    "scikit-learn>=1.7.2",
+    "scipy>=1.16.2",
+    "streamlit>=1.50.0",
+    "textual>=6.6.0",
+    "xlsxwriter>=3.2.9",
+    "yfinance>=0.2.66",
+]
+
+[dependency-groups]
+dev = [
+    "black>=24.10.0",
+    "mypy>=1.13.0",
+    "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/python"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+pythonpath = ["."]
+markers = [
+    "integration: marks tests as integration tests (require real API keys)",
+]
