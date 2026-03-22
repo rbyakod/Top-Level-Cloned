@@ -1,0 +1,14 @@
+`{
+  "model": "gpt-4o",
+  "messages": [
+    {
+      "role": "system",
+      "content": [
+        {
+          "text": "this is from context\nThis is from tool"
+        }
+      ],
+      "usage": {}
+    }
+  ]
+}`

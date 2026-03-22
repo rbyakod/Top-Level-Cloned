@@ -1,0 +1,16 @@
+`{
+  "model": "gpt-4o",
+  "internalSystemPrompt": false,
+  "messages": [
+    {
+      "role": "system",
+      "content": [
+        {
+          "text": "This is a chatbot"
+        }
+      ],
+      "usage": {}
+    }
+  ],
+  "chat": true
+}`

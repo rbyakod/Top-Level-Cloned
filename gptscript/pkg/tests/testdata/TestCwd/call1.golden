@@ -1,0 +1,30 @@
+`{
+  "model": "gpt-4o",
+  "tools": [
+    {
+      "function": {
+        "toolID": "testdata/TestCwd/subtool/test.gpt:",
+        "name": "test",
+        "parameters": null
+      }
+    },
+    {
+      "function": {
+        "toolID": "testdata/TestCwd/test.gpt:local",
+        "name": "local",
+        "parameters": null
+      }
+    }
+  ],
+  "messages": [
+    {
+      "role": "system",
+      "content": [
+        {
+          "text": "noop"
+        }
+      ],
+      "usage": {}
+    }
+  ]
+}`

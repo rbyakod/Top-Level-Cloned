@@ -1,0 +1,28 @@
+name: push-quickstart
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/install.sh"
+      - "examples/echo.gpt"
+jobs:
+  push-quickstart:
+    name: push-quickstart
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Copy files to S3
+        env:
+          AWS_ENDPOINT_URL: ${{ secrets.R2_ENDPOINT_URL }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_KEY }}
+          AWS_DEFAULT_REGION: auto
+        run: |
+          ls -la
+          aws s3 cp scripts/install.sh s3://${{ secrets.R2_BUCKET }}/install.sh
+          aws s3 cp examples/echo.gpt s3://${{ secrets.R2_BUCKET }}/echo.gpt
