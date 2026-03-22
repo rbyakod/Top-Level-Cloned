@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.ravib.myapplication1.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:weightSum="1"
+        android:background="#1ceee3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="My Nanodegree Apps"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:height="@dimen/abc_text_size_large_material"
+            android:id="@+id/textViewTitle"
+            android:textSize="@dimen/abc_text_size_headline_material"
+            android:layout_weight="0.34"
+            android:background="#f1b1b1" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Spotify Streamer"
+            android:id="@+id/buttonSpotify"
+            android:textSize="@dimen/abc_text_size_headline_material"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:enabled="true"
+            android:layout_marginTop="20dp"
+            android:layout_weight="0.07" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scores App"
+            android:id="@+id/buttonScores"
+            android:textSize="@dimen/abc_text_size_headline_material"
+            android:layout_above="@+id/buttonSpotify"
+            android:layout_centerHorizontal="true"
+            android:enabled="true"
+            android:layout_weight="0.07" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Library App"
+            android:id="@+id/buttonLibrary"
+            android:textSize="@dimen/abc_text_size_headline_material"
+            android:layout_above="@+id/buttonScores"
+            android:layout_centerHorizontal="true"
+            android:enabled="true"
+            android:layout_weight="0.07" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Build it Bigger"
+            android:id="@+id/buttonBigger"
+            android:textSize="@dimen/abc_text_size_headline_material"
+            android:layout_above="@+id/buttonLibrary"
+            android:layout_centerHorizontal="true"
+            android:enabled="true"
+            android:layout_weight="0.07" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="My XYZ Reader"
+            android:id="@+id/buttonReader"
+            android:textSize="@dimen/abc_text_size_headline_material"
+            android:layout_above="@+id/buttonBigger"
+            android:layout_centerHorizontal="true"
+            android:enabled="true"
+            android:layout_weight="0.07" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CAPSTONE Project"
+            android:id="@+id/buttonCapstone"
+            android:textSize="@dimen/abc_text_size_headline_material"
+            android:layout_above="@+id/buttonReader"
+            android:layout_centerHorizontal="true"
+            android:enabled="true"
+            android:allowUndo="true"
+            android:layout_weight="0.07" />
+
+    </LinearLayout>
+</RelativeLayout>
