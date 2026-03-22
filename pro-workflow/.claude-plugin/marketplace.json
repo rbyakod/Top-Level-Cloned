@@ -1,0 +1,40 @@
+{
+  "name": "pro-workflow",
+  "owner": {
+    "name": "Rohit Ghumare",
+    "email": "ghumare64@gmail.com"
+  },
+  "metadata": {
+    "description": "Battle-tested Claude Code workflows from power users"
+  },
+  "plugins": [
+    {
+      "name": "pro-workflow",
+      "source": "./",
+      "description": "Self-correcting memory, parallel worktrees, wrap-up rituals, and the 80/20 AI coding ratio. Complete hooks, agents, and commands.",
+      "author": {
+        "name": "Rohit Ghumare"
+      },
+      "homepage": "https://github.com/rohitg00/pro-workflow",
+      "repository": "https://github.com/rohitg00/pro-workflow",
+      "license": "MIT",
+      "keywords": [
+        "workflow",
+        "productivity",
+        "self-correction",
+        "worktrees",
+        "hooks",
+        "agents"
+      ],
+      "category": "workflow",
+      "tags": [
+        "workflow",
+        "hooks",
+        "agents",
+        "commands",
+        "productivity",
+        "best-practices"
+      ]
+    }
+  ]
+}
