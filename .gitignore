@@ -1,0 +1,108 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+wheels/
+*.egg-info
+.eggs/
+
+# Virtual environments
+.venv
+venv/
+env/
+.Python
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+*.env
+
+# Data files
+data/raw/*
+data/processed/*
+!data/sample/*
+*.csv
+*.xlsx
+*.xls
+.claude/hooks/node_modules
+
+# Reports
+reports/*.html
+reports/*.pdf
+reports/temp/*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Logs
+*.log
+logs/
+
+# Private financial data
+private/
+sensitive/
+*.key
+*.pem
+credentials/
+.mcp.json
+
+# Family Office - Private financial documents and user data
+# All research including finance/ and youtube-summaries/
+research/
+# Portfolio positions and analysis notebooks
+notebooks/
+# User's financial profile
+fin-guru/data/user-profile.yaml
+# All generated strategies and reports
+fin-guru-private/
+# Google Sheets portfolio optimizer scripts (contains sensitive portfolio logic)
+scripts/google-sheets/portfolio-optimizer/
+
+# Cache
+.cache/
+.streamlit/
+.claude/tsc-cache/
+
+# Claude Code session data
+.claude/data/sessions/
+.mcp.json
+
+# Private scripts
+scripts/
+
+# Private session data and conversations
+.claude/data/sessions/
+
+# Private issue tracking data
+.beads/issues.jsonl
+.beads/interactions.jsonl
+
+# Private Finance Guru data (personal financial details)
+fin-guru/data/
+
+# Private docs (buy tickets, analysis, strategies)
+# Note: fin-guru-private/ is already ignored above

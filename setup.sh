@@ -1,0 +1,228 @@
+#!/bin/bash
+
+# Finance Guru Setup Script
+# Run this after cloning the repository to set up your private data directories
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$SCRIPT_DIR"  # Script is in project root
+
+echo "=========================================="
+echo "  Finance Guru™ Setup Script"
+echo "=========================================="
+echo ""
+
+# Colors for output
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Function to create directory and report
+create_dir() {
+    if [ ! -d "$1" ]; then
+        mkdir -p "$1"
+        echo -e "${GREEN}Created:${NC} $1"
+    else
+        echo -e "${YELLOW}Exists:${NC} $1"
+    fi
+}
+
+echo "Step 1: Creating private documentation structure..."
+echo ""
+
+# Create fin-guru-private directory structure
+create_dir "$PROJECT_ROOT/fin-guru-private"
+create_dir "$PROJECT_ROOT/fin-guru-private/fin-guru"
+create_dir "$PROJECT_ROOT/fin-guru-private/fin-guru/strategies"
+create_dir "$PROJECT_ROOT/fin-guru-private/fin-guru/strategies/active"
+create_dir "$PROJECT_ROOT/fin-guru-private/fin-guru/strategies/archive"
+create_dir "$PROJECT_ROOT/fin-guru-private/fin-guru/strategies/risk-management"
+create_dir "$PROJECT_ROOT/fin-guru-private/fin-guru/tickets"
+create_dir "$PROJECT_ROOT/fin-guru-private/fin-guru/analysis"
+create_dir "$PROJECT_ROOT/fin-guru-private/fin-guru/analysis/reports"
+create_dir "$PROJECT_ROOT/fin-guru-private/fin-guru/reports"
+create_dir "$PROJECT_ROOT/fin-guru-private/fin-guru/archive"
+create_dir "$PROJECT_ROOT/fin-guru-private/guides"
+
+echo ""
+echo "Step 2: Creating portfolio data directory..."
+echo ""
+
+# Create notebooks/updates for Fidelity CSV exports
+create_dir "$PROJECT_ROOT/notebooks"
+create_dir "$PROJECT_ROOT/notebooks/updates"
+
+echo ""
+echo "Step 3: Creating Finance Guru data directory..."
+echo ""
+
+# Create fin-guru/data directory (required for user profile)
+create_dir "$PROJECT_ROOT/fin-guru/data"
+
+echo ""
+echo "Step 4: Creating user profile template..."
+echo ""
+
+# Create user profile template if it doesn't exist
+USER_PROFILE="$PROJECT_ROOT/fin-guru/data/user-profile.yaml"
+if [ ! -f "$USER_PROFILE" ]; then
+    cat > "$USER_PROFILE" << 'EOF'
+# Finance Guru™ User Profile Configuration
+# Complete this profile during onboarding with the Onboarding Specialist
+
+system_ownership:
+  type: "private_family_office"
+  owner: "sole_client"
+  mode: "exclusive_service"
+  data_location: "local_only"
+
+orientation_status:
+  completed: false
+  assessment_path: ""
+  last_updated: ""
+  onboarding_phase: "pending"  # pending | assessment | profiled | active
+
+user_profile:
+  # Will be populated during onboarding
+  liquid_assets:
+    total: 0
+    accounts_count: 0
+    average_yield: 0.0
+
+  investment_portfolio:
+    total_value: 0
+    retirement_accounts: 0
+    allocation: ""
+    risk_profile: ""
+
+  cash_flow:
+    monthly_income: 0
+    fixed_expenses: 0
+    variable_expenses: 0
+    investment_capacity: 0
+
+  debt_profile:
+    mortgage_balance: 0
+    mortgage_payment: 0
+    weighted_interest_rate: 0.0
+
+  preferences:
+    risk_tolerance: ""
+    investment_philosophy: ""
+    time_horizon: ""
+
+# Google Sheets Integration (optional)
+google_sheets:
+  portfolio_tracker:
+    spreadsheet_id: ""
+    url: ""
+    purpose: "Finance Guru portfolio tracking"
+
+EOF
+    echo -e "${GREEN}Created:${NC} $USER_PROFILE"
+else
+    echo -e "${YELLOW}Exists:${NC} $USER_PROFILE"
+fi
+
+echo ""
+echo "Step 5: Creating README for private directory..."
+echo ""
+
+# Create README for fin-guru-private
+PRIVATE_README="$PROJECT_ROOT/fin-guru-private/README.md"
+if [ ! -f "$PRIVATE_README" ]; then
+    cat > "$PRIVATE_README" << 'EOF'
+# Finance Guru Private Documentation
+
+This directory contains your personal Finance Guru documentation:
+
+- **fin-guru/strategies/** - Your portfolio strategies
+- **fin-guru/tickets/** - Buy/sell execution tickets
+- **fin-guru/analysis/** - Deep research and modeling
+- **fin-guru/reports/** - Monthly market reviews
+- **guides/** - Tool usage guides
+
+## Important
+
+This directory is gitignored and will not be committed to version control.
+Your financial data stays private on your local machine.
+
+## Getting Started
+
+After running the setup script, activate the Onboarding Specialist:
+
+```
+/fin-guru:agents:onboarding-specialist
+```
+
+The specialist will guide you through:
+1. Financial assessment
+2. Portfolio profile creation
+3. Strategy recommendations
+
+Once onboarding is complete, you can use the Finance Orchestrator:
+
+```
+/finance-orchestrator
+```
+EOF
+    echo -e "${GREEN}Created:${NC} $PRIVATE_README"
+else
+    echo -e "${YELLOW}Exists:${NC} $PRIVATE_README"
+fi
+
+echo ""
+echo "Step 6: Setting up environment..."
+echo ""
+
+# Create .env from example if it doesn't exist
+if [ ! -f "$PROJECT_ROOT/.env" ]; then
+    if [ -f "$PROJECT_ROOT/.env.example" ]; then
+        cp "$PROJECT_ROOT/.env.example" "$PROJECT_ROOT/.env"
+        echo -e "${GREEN}Created:${NC} .env from .env.example"
+        echo -e "${YELLOW}Note:${NC} Edit .env to add your API keys"
+    fi
+else
+    echo -e "${YELLOW}Exists:${NC} .env"
+fi
+
+echo ""
+echo "Step 7: Installing Python dependencies..."
+echo ""
+
+# Check if uv is installed
+if command -v uv &> /dev/null; then
+    cd "$PROJECT_ROOT"
+    uv sync
+    echo -e "${GREEN}Dependencies installed via uv${NC}"
+else
+    echo -e "${YELLOW}Warning:${NC} uv not found. Install with: curl -LsSf https://astral.sh/uv/install.sh | sh"
+    echo "Then run: uv sync"
+fi
+
+echo ""
+echo "=========================================="
+echo -e "${GREEN}  Setup Complete!${NC}"
+echo "=========================================="
+echo ""
+echo "Next steps:"
+echo ""
+echo -e "  1. ${BLUE}Edit .env${NC} to add your API keys (optional):"
+echo "     - FINNHUB_API_KEY (for real-time prices)"
+echo "     - ITC_API_KEY (for external risk scores)"
+echo "     Note: yfinance works without API keys for basic market data."
+echo ""
+echo -e "  2. ${BLUE}Configure MCP servers${NC} in Claude Code settings"
+echo "     Required: exa, bright-data, sequential-thinking"
+echo "     Optional: gdrive, perplexity, financial-datasets"
+echo ""
+echo -e "  3. ${BLUE}Run the Onboarding Specialist${NC}:"
+echo "     /fin-guru:agents:onboarding-specialist"
+echo ""
+echo "  4. After onboarding, use the Finance Orchestrator:"
+echo "     /finance-orchestrator"
+echo ""
+echo "See docs/index.md for full documentation."
+echo ""
