@@ -1,0 +1,3 @@
+# Spec Summary (Lite)
+
+Build an intelligent task delegation system that automatically routes user requests to the most appropriate AI agents based on context analysis, enabling rapid multi-agent coordination across Agent OS v2.0's 35+ specialized agents. The system will parse commands like "/fix-bug" or "/build-mvp", analyze requirements, select optimal agent teams, and coordinate parallel workflows with real-time progress tracking and adaptive learning.

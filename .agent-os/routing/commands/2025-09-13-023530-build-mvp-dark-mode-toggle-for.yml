@@ -1,0 +1,20 @@
+routing_id: 2025-09-13-023530-build-mvp-dark-mode-toggle-for
+command: /build-mvp
+description: "Build MVP in 4 hours: dark mode toggle for user preferences"
+priority: high
+time_limit: 240
+workflow_type: mvp-builder
+agents_required:
+  - product-owner
+  - ui-designer
+  - backend-engineer
+  - frontend-engineer
+created_at: 2025-09-13T02:35:30.541Z
+user_context:
+  parameters: dark mode toggle for user preferences
+  modifiers:
+    - type: quality
+      value: mvp
+    - type: time_limit
+      value: 4_hours
+  original_command: /build-mvp dark mode toggle for user preferences

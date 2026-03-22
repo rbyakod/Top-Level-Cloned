@@ -1,0 +1,202 @@
+# Workflow Context Template
+# One file per workflow execution for state tracking
+
+workflow_id: "{{WORKFLOW_TYPE}}-{{DATE}}-{{ID}}"
+type: "{{WORKFLOW_TYPE}}" # /fix-bug, /build-mvp, /validate, /ultrathink
+started: "{{START_TIMESTAMP}}"
+estimated_completion: "{{ESTIMATED_END}}"
+actual_completion: null
+status: pending # pending|in_progress|completed|failed|paused
+
+# Workflow configuration
+configuration:
+  user_id: "{{USER_ID}}"
+  session_id: "{{SESSION_ID}}"
+  priority: normal # low|normal|high|critical
+  time_limit: "{{TIME_LIMIT}}"
+  quality_requirements: standard # minimal|standard|high
+  
+# Input context
+input:
+  problem_description: "{{PROBLEM}}"
+  success_criteria: []
+  constraints: []
+  user_preferences: {}
+  related_workflows: []
+
+# Step progression tracking
+steps:
+  # Template for steps:
+  # - step_number: 1
+  #   name: step_name
+  #   agent: assigned_agent
+  #   status: pending|in_progress|completed|failed|skipped
+  #   started: timestamp
+  #   completed: timestamp
+  #   duration: actual_time_taken
+  #   estimated_duration: expected_time
+  #   output: deliverables_produced
+  #   issues: problems_encountered
+
+# Agent coordination
+agents:
+  assigned: []
+  active: []
+  completed: []
+  performance: {}
+  # Format for agent performance:
+  # agent_name:
+  #   steps_completed: 2
+  #   total_time: 15_minutes
+  #   efficiency: 95% # actual vs estimated time
+  #   quality_score: 9/10
+  #   coordination_rating: 8/10
+
+# Artifact management
+artifacts:
+  created: []
+  modified: []
+  dependencies: []
+  # Format:
+  # - type: code|documentation|configuration|test|analysis
+  #   path: file_path
+  #   agent_creator: agent_name
+  #   step_created: step_number
+  #   importance: critical|important|supporting
+  #   status: draft|review|approved|deployed
+
+# Context preservation between steps
+context_variables:
+  # Dynamic variables that carry forward between steps
+  # Examples:
+  # bug_location: src/auth/login.ts:42
+  # root_cause: timeout_configuration
+  # fix_approach: increase_timeout_add_retry
+  # testing_strategy: unit_and_integration
+
+# Quality gates
+quality_gates:
+  # Gates that must pass before proceeding
+  # - gate: all_tests_pass
+  #   status: pending|passed|failed
+  #   required_for: deployment
+  #   checked_by: qa-engineer
+  # - gate: user_acceptance
+  #   status: pending
+  #   required_for: completion
+  #   checked_by: user
+
+# Time tracking
+time_tracking:
+  planned_duration: "{{PLANNED_DURATION}}"
+  actual_duration: null
+  time_breakdown: {}
+  # Format:
+  # step_name: minutes_spent
+  
+  efficiency_metrics:
+    coordination_overhead: null
+    context_switching_time: null
+    waiting_time: null
+    productive_time: null
+
+# Issue tracking
+issues:
+  # Problems encountered during execution
+  # - timestamp: when_occurred
+  #   type: technical|coordination|resource|requirement
+  #   description: what_happened
+  #   impact: severity_and_delay
+  #   resolution: how_resolved
+  #   prevention: how_to_avoid_future
+
+# Decision points
+decisions:
+  # Key decisions made during workflow execution
+  # - step: step_number
+  #   timestamp: when_decided
+  #   decision: what_was_chosen
+  #   alternatives: other_options_considered
+  #   reasoning: why_chosen
+  #   impact: consequences
+
+# User interaction
+user_interaction:
+  feedback_requests: []
+  approvals_needed: []
+  clarifications_requested: []
+  user_satisfaction: null
+  
+  # Format for feedback:
+  # - step: step_number
+  #   type: clarification|approval|feedback
+  #   question: what_was_asked
+  #   response: user_answer
+  #   impact: how_it_changed_workflow
+
+# Learning capture
+learning:
+  patterns_identified: []
+  optimization_opportunities: []
+  reusable_solutions: []
+  process_improvements: []
+  
+  # What worked well
+  successes: []
+  
+  # What could be improved
+  improvements: []
+
+# Integration with knowledge base
+knowledge_integration:
+  problems_referenced: []
+  solutions_applied: []
+  patterns_used: []
+  decisions_influenced_by: []
+  
+  # Contributions back to knowledge base
+  new_problems_identified: []
+  new_solutions_created: []
+  new_patterns_discovered: []
+  new_decisions_documented: []
+
+# Monitoring and alerting
+monitoring:
+  health_checks: []
+  performance_metrics: {}
+  alert_triggers: []
+  
+  # Resource usage
+  compute_resources: null
+  api_calls: null
+  external_service_usage: null
+
+# Completion summary
+completion:
+  success: null # true|false
+  completion_percentage: null
+  success_criteria_met: []
+  success_criteria_missed: []
+  
+  # Final deliverables
+  deliverables: []
+  
+  # Post-completion actions
+  follow_up_tasks: []
+  monitoring_requirements: []
+  user_handoff_items: []
+
+# Workflow relationships
+relationships:
+  parent_workflow: null # if this is a sub-workflow
+  child_workflows: [] # any sub-workflows spawned
+  related_workflows: [] # similar or connected workflows
+  dependencies: [] # workflows this depends on
+  dependents: [] # workflows that depend on this
+
+# Recovery and resumption
+recovery:
+  checkpoint_data: {} # data needed to resume if interrupted
+  resumption_instructions: []
+  rollback_plan: []
+  cleanup_requirements: []

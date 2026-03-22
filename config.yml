@@ -1,0 +1,435 @@
+# Agent OS Configuration - v2.0 Enhanced Edition
+# Team-based organization for one-person company capabilities
+# Backward compatible with v1.x workflows
+
+agent_os_version: 2.0.0
+
+# Core Agent OS agents
+agents:
+  claude_code:
+    enabled: true
+  cursor:
+    enabled: true
+
+# Team-based agent organization
+teams:
+  product:
+    lead: product-owner
+    members:
+      - product-owner         # User problem validation, requirements
+      - product-analyst      # Data-driven decision making
+      - requirements-writer  # PRD and specification writing
+    capabilities:
+      - User problem validation
+      - Feature prioritization
+      - Requirements documentation
+      - Product analytics
+    sla: "2-hour problem validation"
+
+  engineering:
+    lead: architect
+    members:
+      - architect           # System design and technical decisions
+      - backend-engineer    # APIs, services, databases
+      - frontend-engineer   # Web UI implementation
+      - mobile-engineer     # iOS/Android development
+      - devops-engineer     # Infrastructure and deployment
+      - security-engineer   # Security review and compliance
+      - database-architect  # Data modeling and optimization
+      - api-designer       # API contracts and standards
+      - performance-engineer # Speed and scalability
+      - cloud-architect    # Cloud infrastructure design
+    capabilities:
+      - Full-stack development
+      - System architecture
+      - API development
+      - Mobile applications
+      - Infrastructure automation
+    sla: "4-hour MVP implementation"
+
+  design:
+    lead: ux-designer
+    members:
+      - ux-designer        # User experience strategy (original enhanced)
+      - ui-designer        # Interface design and prototyping
+      - ux-researcher      # User testing and validation
+      - design-systems-architect # Component library management
+      - accessibility-specialist # WCAG compliance
+    capabilities:
+      - User research
+      - UI/UX design
+      - Design systems
+      - Prototyping
+      - Accessibility
+    sla: "30-minute prototypes"
+
+  quality:
+    lead: qa-lead
+    members:
+      - qa-engineer        # Testing and quality assurance
+      - qa-lead           # Testing strategy
+      - test-automation   # Automated testing
+      - release-manager   # Deployment coordination
+    capabilities:
+      - Test planning
+      - Automated testing
+      - Release management
+      - Quality metrics
+    sla: "15-minute validation"
+
+  data_ai:
+    lead: ai-researcher
+    members:
+      - data-scientist     # Analytics and ML models
+      - ai-researcher      # AI/ML integration
+      - analytics-engineer # Data pipeline development
+      - ml-engineer       # Model deployment
+    capabilities:
+      - Data analysis
+      - Machine learning
+      - AI integration
+      - Analytics pipelines
+    sla: "Real-time insights"
+
+  growth:
+    lead: growth-engineer
+    members:
+      - growth-engineer    # Growth experiments
+      - content-strategist # Content and SEO
+      - marketing-analyst  # Campaign effectiveness
+      - market-researcher  # Competitive intelligence (original enhanced)
+    capabilities:
+      - Growth experiments
+      - SEO optimization
+      - Content strategy
+      - Market analysis
+    sla: "Daily experiments"
+
+  strategy:
+    lead: business-strategist
+    members:
+      - business-strategist # Business strategy (original enhanced)
+      - technical-writer    # Documentation
+      - customer-success    # User satisfaction
+    capabilities:
+      - Business strategy
+      - Documentation
+      - Customer success
+    sla: "Strategic alignment"
+
+  rapid_response:
+    lead: incident-commander
+    members:
+      - incident-commander  # Critical issue response
+      - support-engineer   # User support
+    capabilities:
+      - Incident response
+      - User support
+      - Bug fixes
+    sla: "15-minute critical fixes"
+
+# Legacy specialized agents (backward compatibility)
+specialized_agents:
+  # Core development agents (standard Agent OS)
+  development:
+    - context-fetcher    # Documentation retrieval
+    - date-checker      # Date determination  
+    - file-creator      # File and directory creation
+    - git-workflow      # Git operations and PR management
+    - project-manager   # Task completion tracking
+    - test-runner       # Test execution and analysis
+  
+  # Strategic agents (Enhanced Agent OS v1)
+  strategic:
+    - ux-designer       # Now part of design team
+    - market-researcher # Now part of growth team
+    - business-strategist # Now part of strategy team
+
+# Workflow configurations
+workflows:
+  # Speed-optimized workflows
+  rapid:
+    rapid-validation:
+      description: "Validate user problems in 2 hours"
+      time_limit: "2 hours"
+      trigger: "User problem validation needed"
+      path: "~/.agent-os/instructions/enhanced/rapid-validation.md"
+    
+    fast-track-bug-fix:
+      description: "Fix critical bugs in 15 minutes"
+      time_limit: "15 minutes"
+      trigger: "Critical user-facing bug"
+      path: "~/.agent-os/instructions/enhanced/fast-track-bug-fix.md"
+    
+    mvp-builder:
+      description: "Build MVP in 4 hours"
+      time_limit: "4 hours"
+      trigger: "Validated problem needs solution"
+      path: "~/.agent-os/instructions/enhanced/mvp-builder.md"
+
+  # Multi-agent coordination workflows
+  coordination:
+    ultrathink-development:
+      description: "Multi-agent complex problem solving"
+      time_limit: "1 day"
+      trigger: "Complex feature requiring multiple domains"
+      path: "~/.agent-os/instructions/enhanced/ultrathink-development.md"
+    
+    enhanced-create-spec:
+      description: "User-centric spec creation with validation"
+      time_limit: "90 minutes"
+      trigger: "New feature specification needed"
+      path: "~/.agent-os/instructions/enhanced/enhanced-create-spec.md"
+
+  # Legacy workflows (backward compatibility)
+  standard:
+    create-spec:
+      path: "~/.agent-os/instructions/create-spec.md"
+    execute-tasks:
+      path: "~/.agent-os/instructions/execute-tasks.md"
+    create-commands:
+      path: "~/.agent-os/instructions/create-commands.md"
+    refine-spec:
+      path: "~/.agent-os/instructions/refine-spec.md"
+
+# Project type configurations
+project_types:
+  # Default original Agent OS
+  default:
+    instructions: ~/.agent-os/instructions
+    standards: ~/.agent-os/standards
+    teams: []
+    workflows: [standard]
+
+  # Solo engineer with team support
+  solo_engineer:
+    instructions: ~/.agent-os/instructions
+    standards: ~/.agent-os/standards
+    teams: [product, engineering, design, quality]
+    workflows: [rapid, coordination, standard]
+    enhanced_features:
+      auto_validation: true
+      design_system: true
+      business_case: true
+      speed_focus: true
+
+  # Startup CTO mode
+  startup_cto:
+    instructions: ~/.agent-os/instructions
+    standards: ~/.agent-os/standards  
+    teams: [all]
+    workflows: [rapid, coordination, standard]
+    enhanced_features:
+      strategic_planning: true
+      team_scaling: true
+      investor_readiness: true
+      market_positioning: true
+
+  # One-person company mode (v2.0)
+  one_person_company:
+    instructions: ~/.agent-os/instructions
+    standards: ~/.agent-os/standards
+    teams: [all]
+    workflows: [rapid, coordination, standard]
+    enhanced_features:
+      all: true
+    speed_sla:
+      bug_fix: "15 minutes"
+      validation: "2 hours"
+      mvp: "4 hours"
+      feature: "1 day"
+
+# Default to enhanced v2.0 mode
+default_project_type: one_person_company
+
+# Standards enforcement
+standards:
+  speed_principles:
+    enabled: true
+    path: "~/.agent-os/standards/speed-principles.md"
+    enforce:
+      - "Ship in hours not weeks"
+      - "User validation before building"
+      - "Working code over perfect code"
+  
+  user_centric:
+    enabled: true
+    path: "~/.agent-os/standards/user-centric-principles.md"
+    enforce:
+      - "Every feature solves validated problem"
+      - "User feedback drives decisions"
+      - "Problem-first not solution-first"
+  
+  tech_selection:
+    enabled: true
+    path: "~/.agent-os/standards/tech-selection.md"
+    default_stack:
+      frontend: "Next.js + Tailwind"
+      backend: "Node.js + Express"
+      database: "PostgreSQL + Prisma"
+      hosting: "Vercel + Railway"
+      auth: "Supabase Auth"
+
+# Enhanced features configuration
+enhanced_features:
+  # Speed optimizations
+  speed_mode:
+    rapid_validation: true          # 2-hour validation cycles
+    fast_shipping: true            # Ship daily
+    mvp_focus: true               # Build minimal first
+    iteration_over_perfection: true # Iterate based on usage
+  
+  # User-centric features
+  user_focus:
+    problem_validation: true       # Validate before building
+    user_testing: true            # Test with real users
+    feedback_loops: true          # Continuous user feedback
+    satisfaction_tracking: true    # Measure user happiness
+  
+  # Team coordination
+  team_coordination:
+    parallel_execution: true       # Teams work in parallel
+    context_preservation: true     # File-based context sharing
+    automated_handoffs: true      # Smooth transitions between agents
+    conflict_resolution: true     # Architect resolves conflicts
+
+  # Solo engineer optimizations
+  solo_engineer_mode:
+    auto_market_research: true      # Research before every spec
+    design_system_enforcement: true # Maintain UI consistency  
+    business_case_validation: true  # Validate ROI before development
+    strategic_decision_support: true # CTO-level guidance
+
+  # Business intelligence and reporting
+  reporting:
+    progress_tracking: true         # Development velocity
+    business_metrics: true          # Feature success and ROI
+    competitive_analysis: true      # Market positioning
+    technical_debt_monitoring: true # Code quality tracking
+    user_satisfaction: true        # NPS and feedback
+
+# Agent behavior settings
+agent_behavior:
+  autonomy_level: high             # Agents make decisions independently
+  intervention_threshold: errors_only # Only ask for help on blocking issues
+  strategic_validation: true       # Validate business decisions
+  user_experience_focus: true     # Prioritize UX in all decisions
+  market_awareness: true          # Consider market context
+  speed_bias: true               # Prefer shipping fast
+  problem_solving_first: true     # Focus on user problems
+
+# Routing configuration
+routing:
+  smart_router:
+    enabled: true
+    rules:
+      - pattern: "bug|broken|error|fix"
+        workflow: "fast-track-bug-fix"
+        team: "rapid_response"
+      
+      - pattern: "validate|user problem|research"
+        workflow: "rapid-validation"
+        team: "product"
+      
+      - pattern: "complex|architecture|system"
+        workflow: "ultrathink-development"
+        team: "all"
+      
+      - pattern: "ui|design|ux"
+        team: "design"
+      
+      - pattern: "api|backend|database"
+        team: "engineering"
+
+# State management
+state_management:
+  context_preservation:
+    enabled: true
+    directory: "~/.agent-os/context"
+    format: "markdown"
+  
+  user_context:
+    track_problems: true
+    track_solutions: true
+    track_feedback: true
+    persist_between_sessions: true
+
+# Compatibility settings
+compatibility:
+  original_workflows: true        # Support original Agent OS workflows
+  legacy_commands: true          # Keep existing command structure
+  migration_support: true        # Help migrate from v1.x to v2.0
+  enhanced_v1_support: true     # Support Brian Casel's enhanced agents
+
+# Monitoring and metrics
+monitoring:
+  performance:
+    track_sla: true               # Monitor speed SLAs
+    track_success_rate: true      # Feature success metrics
+    track_user_satisfaction: true  # User happiness
+  
+  alerts:
+    sla_breach: true              # Alert on SLA miss
+    user_complaints: true         # Alert on user issues
+    system_errors: true           # Alert on failures
+
+# Template system
+templates:
+  agents:
+    base_path: "~/.agent-os/templates/agents"
+    categories: [product, engineering, design, quality]
+  
+  workflows:
+    base_path: "~/.agent-os/templates/workflows"
+    categories: [rapid, standard, complex]
+  
+  specs:
+    base_path: "~/.agent-os/templates/specs"
+    categories: [feature, bug, research]
+
+# Commands configuration
+commands:
+  rapid:
+    - name: "/validate"
+      description: "Validate user problem in 2 hours"
+      workflow: "rapid-validation"
+    
+    - name: "/fix-bug"
+      description: "Fix critical bug in 15 minutes"
+      workflow: "fast-track-bug-fix"
+    
+    - name: "/build-mvp"
+      description: "Build MVP in 4 hours"
+      workflow: "mvp-builder"
+    
+    - name: "/ship-today"
+      description: "Ship feature by end of day"
+      workflow: "rapid-feature"
+
+  coordination:
+    - name: "/ultrathink"
+      description: "Solve complex problem with all teams"
+      workflow: "ultrathink-development"
+    
+    - name: "/team-build"
+      description: "Coordinate team to build feature"
+      workflow: "team-coordination"
+
+# Version history
+version_history:
+  "2.0.0":
+    date: "2024-01-27"
+    changes:
+      - "Team-based agent organization (35+ agents)"
+      - "Speed-optimized workflows (15-min to 4-hour SLAs)"
+      - "User-centric standards enforcement"
+      - "Multi-agent coordination (Ultrathink)"
+      - "One-person company capabilities"
+      - "Backward compatibility with v1.x"
+  
+  "1.4.1":
+    date: "2024-01-15"
+    changes:
+      - "Enhanced Agent OS by Brian Casel"
+      - "Strategic agents (UX, Market, Business)"
+      - "Solo engineer optimizations"

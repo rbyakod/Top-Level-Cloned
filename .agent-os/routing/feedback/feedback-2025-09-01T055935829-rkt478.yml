@@ -1,0 +1,15 @@
+workflow_id: workflow-123
+feedback_type: workflow
+rating: 4
+satisfaction: satisfied
+context:
+  command_used: /build-mvp
+  time_taken: 240
+  agents_involved:
+    - frontend-expert
+    - backend-specialist
+  workflow_type: feature-development
+  user_experience_level: intermediate
+  use_case: dark mode implementation
+feedback_id: feedback-2025-09-01T055935829-rkt478
+created_at: 2025-09-01T05:59:35.829Z
