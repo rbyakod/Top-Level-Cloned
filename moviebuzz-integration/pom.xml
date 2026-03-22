@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>moviebuzz-parent</artifactId>
+    <groupId>com.moviebuzz</groupId>
+    <version>${application.version}-${release.number}</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>moviebuzz-integration</artifactId>
+
+
+  <dependencies>
+    <!-- dependencies for the integration -->
+    <dependency>
+      <groupId>com.moviebuzz</groupId>
+      <artifactId>moviebuzz-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.moviebuzz</groupId>
+      <artifactId>moviebuzz-process</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.moviebuzz</groupId>
+      <artifactId>moviebuzz-user-service</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.moviebuzz</groupId>
+      <artifactId>moviebuzz-front-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.moviebuzz</groupId>
+      <artifactId>moviebuzz-gateway</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>com.jayway.restassured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>2.4.0</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+
+  <profiles>
+    <profile>
+      <id>run-tests-subset</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <!-- alexecollins plugin to build docker images and run docker containers -->
+          <plugin>
+            <groupId>com.alexecollins.docker</groupId>
+            <artifactId>docker-maven-plugin</artifactId>
+            <version>2.11.24</version>
+            <dependencies>
+              <dependency>
+                <groupId>com.github.docker-java</groupId>
+                <artifactId>docker-java</artifactId>
+                <version>3.0.12</version>
+              </dependency>
+            </dependencies>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>help</goal>
+                  <goal>clean</goal>
+                  <goal>package</goal>
+                  <goal>start</goal>
+                  <goal>stop</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <exclude>upgrade-utility</exclude>
+              <removeIntermediateImages>true</removeIntermediateImages>
+            </configuration>
+          </plugin>
+
+          <!-- copies the required JAR files in Target folder of moviebuzz-integration on -Pintegrate -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.1.0</version>
+            <executions>
+              <execution>
+                <id>copy-dependencies</id>
+                <phase>prepare-package</phase>
+                <goals>
+                  <goal>copy-dependencies</goal>
+                </goals>
+                <configuration>
+                  <includeGroupIds>com.moviebuzz</includeGroupIds>
+                  <overWriteIfNewer>true</overWriteIfNewer>
+                  <excludeTransitive>true</excludeTransitive>
+                  <stripVersion>true</stripVersion>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+          <!-- we don't want to run unit tests as all tests are Integration Tests, so skipping surfire plugin-->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <skip>true</skip>
+            </configuration>
+          </plugin>
+
+          <!-- we want to run Integration Tests, so adding failsafe plugin-->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <version>2.17</version>
+            <configuration>
+              <forkCount>4</forkCount>
+              <reuseForks>true</reuseForks>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>integration-test</goal>
+                  <goal>verify</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+
+
+</project>
