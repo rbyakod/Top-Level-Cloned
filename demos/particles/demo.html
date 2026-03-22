@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {background-color: black; color: white;}
+            body * {display: block; width: 450px; margin: auto; text-align: center;}
+        </style>
+
+        <title>Firefox Particles</title>
+        <script src="demo_particles.js"></script>
+        <script>
+            var targetOrigin = '*';
+
+            window.addEventListener("load", function() {
+                webGLStart();
+                window.parent.postMessage('loaded', targetOrigin);
+            }, true);
+
+            window.addEventListener("message", function(e) { 
+                if ("stop_demo" == e.data) {
+                    window.parent.postMessage('finished_exit', targetOrigin);
+                }
+            }, true);
+
+        </script>
+    </head>
+
+    <body>
+        <canvas id="OpenSceneGraph-WebGL-demo-particles" width="460" height="392" ></canvas>
+        <em>Click like crazy :)</em>
+        <script src="../../shared/mozilla-badge.js" defer></script>
+    </body>
+</html>
