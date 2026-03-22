@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=https://golangci-lint.run/jsonschema/golangci.jsonschema.json
+version: "2"
+
+run:
+  timeout: 5m
+  tests: false
+
+linters:
+  enable:
+    - errcheck
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    - misspell
+    - bodyclose
+    - gosec
+    - prealloc
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - std-error-handling
+    paths:
+      - tests
+      - ".*_test\\.go"
+  settings:
+    errcheck:
+      check-blank: false
+      # Ignore fire-and-forget writes in proxy (performance critical)
+      exclude-functions:
+        - (net/http.ResponseWriter).Write
+        - (*encoding/json.Encoder).Encode
+        - io.Copy
+        - (*os.File).Write
+        - (*os.File).Sync
+    govet:
+      enable-all: true
+      disable:
+        - fieldalignment
+    gosec:
+      excludes:
+        # G101: Struct field names match secret patterns - these ARE credential config structs
+        - G101
+        # G304: Path traversal - paths validated via filepath.Clean + prefix checks.
+        - G304
+        # G107: SSRF - URLs from trusted config with scheme validation (http/https only).
+        - G107
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+
+output:
+  show-stats: true
