@@ -1,0 +1,76 @@
+# If you prefer the allow list template instead of the deny list, see community template:
+# https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
+#
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Code coverage profiles and other test artifacts
+*.out
+coverage.*
+*.coverprofile
+profile.cov
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# Go workspace file
+go.work
+go.work.sum
+
+# env file (for local API keys during testing)
+.env
+.env.test
+.env.local
+
+# Editor/IDE
+# .idea/
+# .vscode/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+logs/*.jsonl
+
+# Context-Gateway specific
+#.claude/
+logs/
+*.log
+*.pid
+bin/
+benchmarks/results_summary/
+benchmarks/results_detailed/
+
+# Dev container (personal testing)
+Dockerfile.dev
+benchmarks/runs/
+benchmarks/backup/
+# benchmarks/notebooks/
+
+# Python
+benchmarks/src/__pycache__/*
+*.pyc
+*.py[cod]
+*.egg-info/
+.build/
+docs/
+.aider*
+.gocache/
+.gomodcache/
+
+web/dashboard/node_modules/
+web/dashboard/dist/
+web/dashboard/.vite/
+
+# Plugins
+internal/plugins/openclaw/node_modules/
+
+.claude/

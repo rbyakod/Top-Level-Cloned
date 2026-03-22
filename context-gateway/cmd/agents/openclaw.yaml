@@ -1,0 +1,32 @@
+# OpenClaw Agent Configuration
+# ================================
+# Context Gateway runs in background, user launches OpenClaw separately.
+# The compresr-proxy plugin routes OpenClaw traffic through our gateway.
+#
+# Flow: openclaw tui → Context Gateway (via plugin) → Provider
+#
+# First-time setup (configure API keys):
+#   openclaw onboard              # recommended: full guided setup
+#   OR: openclaw models auth login  # quick: just set up model auth
+#
+# Usage:
+#   context-gateway -a openclaw    # starts gateway in background mode
+#   openclaw tui                   # user runs this separately
+
+agent:
+  name: "openclaw"
+  display_name: "OpenClaw"
+  description: "OpenClaw AI assistant with Compresr compression"
+  run_mode: "background"           # Gateway runs as daemon, user runs openclaw separately
+  routing_method: "config_override" # Plugin modifies ~/.openclaw/openclaw.json
+  skip_api_key_setup: true  # OpenClaw handles its own auth: openclaw models auth login
+
+  # Plugin handles routing - see plugins/openclaw/
+  # No environment vars needed - plugin injects models.providers.*.baseUrl
+
+  command:
+    check_cmd: ["which", "openclaw"]
+    run: "openclaw"
+    args: ["tui"]
+    install_cmd: ["npm", "install", "-g", "openclaw@latest"]
+    fallback_message: "OpenClaw not found. Install with: npm install -g openclaw@latest\nFirst-time setup: run 'openclaw onboard' after installation"
