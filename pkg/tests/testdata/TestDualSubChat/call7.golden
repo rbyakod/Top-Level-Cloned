@@ -1,0 +1,115 @@
+`{
+  "model": "gpt-4o",
+  "tools": [
+    {
+      "function": {
+        "toolID": "testdata/TestDualSubChat/test.gpt:chatbot",
+        "name": "chatbot",
+        "parameters": {
+          "properties": {
+            "defaultPromptParameter": {
+              "description": "Prompt to send to the assistant. This may be an instruction or question.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      }
+    },
+    {
+      "function": {
+        "toolID": "testdata/TestDualSubChat/test.gpt:chatbot2",
+        "name": "chatbot2",
+        "parameters": {
+          "properties": {
+            "defaultPromptParameter": {
+              "description": "Prompt to send to the assistant. This may be an instruction or question.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      }
+    }
+  ],
+  "messages": [
+    {
+      "role": "system",
+      "content": [
+        {
+          "text": "Call chatbots"
+        }
+      ],
+      "usage": {}
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "text": "User 1"
+        }
+      ],
+      "usage": {}
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "toolCall": {
+            "index": 0,
+            "id": "call_1",
+            "function": {
+              "name": "chatbot",
+              "arguments": "Input to chatbot1"
+            }
+          }
+        },
+        {
+          "toolCall": {
+            "index": 1,
+            "id": "call_2",
+            "function": {
+              "name": "chatbot2",
+              "arguments": "Input to chatbot2"
+            }
+          }
+        }
+      ],
+      "usage": {}
+    },
+    {
+      "role": "tool",
+      "content": [
+        {
+          "text": "Chat done"
+        }
+      ],
+      "toolCall": {
+        "index": 0,
+        "id": "call_1",
+        "function": {
+          "name": "chatbot",
+          "arguments": "Input to chatbot1"
+        }
+      },
+      "usage": {}
+    },
+    {
+      "role": "tool",
+      "content": [
+        {
+          "text": "Chat done2"
+        }
+      ],
+      "toolCall": {
+        "index": 1,
+        "id": "call_2",
+        "function": {
+          "name": "chatbot2",
+          "arguments": "Input to chatbot2"
+        }
+      },
+      "usage": {}
+    }
+  ]
+}`

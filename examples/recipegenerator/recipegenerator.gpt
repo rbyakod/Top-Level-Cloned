@@ -1,0 +1,16 @@
+tools: sys.find, sys.read, sys.write, recipegenerator, github.com/gptscript-ai/gpt4-v-vision
+
+Perform the following steps in order:
+
+1. Give me a list of ingredients from the pictures named with grocery in their name located in the current directory and put those extracted ingredients into a list.
+2. For each picture analyzed in the previous step, write the ingredients identified into one file name ingredients.md.
+3. Based on these ingredients list, suggest me one recipe that is quick to cook and create a new recipe.md file with the recipe
+
+
+---
+name: recipegenerator
+description: Generate a recipe from the list of ingredients
+args: ingredients: a list of available ingredients.
+tools: sys.read
+
+Generate 1 new recipe based on the ingredients list

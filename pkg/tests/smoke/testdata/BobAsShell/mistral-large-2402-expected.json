@@ -1,0 +1,1804 @@
+[
+    {
+        "time": "2024-07-03T10:53:05.993864-04:00",
+        "type": "runStart",
+        "usage": {}
+    },
+    {
+        "time": "2024-07-03T10:53:05.99419-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callStart",
+        "usage": {}
+    },
+    {
+        "time": "2024-07-03T10:53:06.366435-04:00",
+        "type": "runStart",
+        "usage": {}
+    },
+    {
+        "time": "2024-07-03T10:53:06.366952-04:00",
+        "callContext": {
+            "id": "1720018387",
+            "tool": {
+                "name": "Mistral La Plateforme Provider",
+                "description": "Model provider for Mistral models running on La Plateforme",
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "modelProvider": true,
+                "internalPrompt": null,
+                "credentials": [
+                    "github.com/gptscript-ai/credential as github.com/gptscript-ai/mistral-laplateforme-provider/credential with \"Please enter your Mistral La Plateforme API Key\" as message and token as field and \"MISTRAL_API_KEY\" as env"
+                ],
+                "instructions": "#!sys.daemon /usr/bin/env python3 ${GPTSCRIPT_TOOL_DIR}/main.py",
+                "id": "https://raw.githubusercontent.com/gptscript-ai/mistral-laplateforme-provider/cbf1aeb6db495b9b6223984651d29ac511d2748d/tool.gpt:Mistral La Plateforme Provider",
+                "toolMapping": {
+                    "github.com/gptscript-ai/credential as github.com/gptscript-ai/mistral-laplateforme-provider/credential with \"Please enter your Mistral La Plateforme API Key\" as message and token as field and \"MISTRAL_API_KEY\" as env": [
+                        {
+                            "reference": "github.com/gptscript-ai/credential as github.com/gptscript-ai/mistral-laplateforme-provider/credential with \"Please enter your Mistral La Plateforme API Key\" as message and token as field and \"MISTRAL_API_KEY\" as env",
+                            "toolID": "https://raw.githubusercontent.com/gptscript-ai/credential/651dfad6e7cf3a385ef408afa93ce522c10f8508/tool.gpt:token"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "mistral la plateforme provider": "https://raw.githubusercontent.com/gptscript-ai/mistral-laplateforme-provider/cbf1aeb6db495b9b6223984651d29ac511d2748d/tool.gpt:Mistral La Plateforme Provider"
+                },
+                "source": {
+                    "location": "https://raw.githubusercontent.com/gptscript-ai/mistral-laplateforme-provider/cbf1aeb6db495b9b6223984651d29ac511d2748d/tool.gpt",
+                    "lineNo": 1,
+                    "repo": {
+                        "VCS": "git",
+                        "Root": "https://github.com/gptscript-ai/mistral-laplateforme-provider.git",
+                        "Path": "/",
+                        "Name": "tool.gpt",
+                        "Revision": "cbf1aeb6db495b9b6223984651d29ac511d2748d"
+                    }
+                },
+                "workingDir": "https://raw.githubusercontent.com/gptscript-ai/mistral-laplateforme-provider/cbf1aeb6db495b9b6223984651d29ac511d2748d"
+            },
+            "currentAgent": {},
+            "inputContext": null,
+            "toolCategory": "provider",
+            "displayText": "Running sys.daemon"
+        },
+        "type": "callStart",
+        "usage": {}
+    },
+    {
+        "time": "2024-07-03T10:53:07.383203-04:00",
+        "callContext": {
+            "id": "1720018387",
+            "tool": {
+                "name": "Mistral La Plateforme Provider",
+                "description": "Model provider for Mistral models running on La Plateforme",
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "modelProvider": true,
+                "internalPrompt": null,
+                "credentials": [
+                    "github.com/gptscript-ai/credential as github.com/gptscript-ai/mistral-laplateforme-provider/credential with \"Please enter your Mistral La Plateforme API Key\" as message and token as field and \"MISTRAL_API_KEY\" as env"
+                ],
+                "instructions": "#!sys.daemon /usr/bin/env python3 ${GPTSCRIPT_TOOL_DIR}/main.py",
+                "id": "https://raw.githubusercontent.com/gptscript-ai/mistral-laplateforme-provider/cbf1aeb6db495b9b6223984651d29ac511d2748d/tool.gpt:Mistral La Plateforme Provider",
+                "toolMapping": {
+                    "github.com/gptscript-ai/credential as github.com/gptscript-ai/mistral-laplateforme-provider/credential with \"Please enter your Mistral La Plateforme API Key\" as message and token as field and \"MISTRAL_API_KEY\" as env": [
+                        {
+                            "reference": "github.com/gptscript-ai/credential as github.com/gptscript-ai/mistral-laplateforme-provider/credential with \"Please enter your Mistral La Plateforme API Key\" as message and token as field and \"MISTRAL_API_KEY\" as env",
+                            "toolID": "https://raw.githubusercontent.com/gptscript-ai/credential/651dfad6e7cf3a385ef408afa93ce522c10f8508/tool.gpt:token"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "mistral la plateforme provider": "https://raw.githubusercontent.com/gptscript-ai/mistral-laplateforme-provider/cbf1aeb6db495b9b6223984651d29ac511d2748d/tool.gpt:Mistral La Plateforme Provider"
+                },
+                "source": {
+                    "location": "https://raw.githubusercontent.com/gptscript-ai/mistral-laplateforme-provider/cbf1aeb6db495b9b6223984651d29ac511d2748d/tool.gpt",
+                    "lineNo": 1,
+                    "repo": {
+                        "VCS": "git",
+                        "Root": "https://github.com/gptscript-ai/mistral-laplateforme-provider.git",
+                        "Path": "/",
+                        "Name": "tool.gpt",
+                        "Revision": "cbf1aeb6db495b9b6223984651d29ac511d2748d"
+                    }
+                },
+                "workingDir": "https://raw.githubusercontent.com/gptscript-ai/mistral-laplateforme-provider/cbf1aeb6db495b9b6223984651d29ac511d2748d"
+            },
+            "currentAgent": {},
+            "inputContext": null,
+            "toolCategory": "provider",
+            "displayText": "Running sys.daemon"
+        },
+        "type": "callFinish",
+        "usage": {},
+        "content": "http://127.0.0.1:10798"
+    },
+    {
+        "time": "2024-07-03T10:53:07.383553-04:00",
+        "type": "runFinish",
+        "usage": {}
+    },
+    {
+        "time": "2024-07-03T10:53:07.383621-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callChat",
+        "chatCompletionId": "1720018388",
+        "usage": {},
+        "chatRequest": {
+            "model": "mistral-large-2402",
+            "messages": [
+                {
+                    "role": "system",
+                    "content": "Ask Bob \"how are you doing\" and repeat his reply exactly."
+                }
+            ],
+            "temperature": 0,
+            "tools": [
+                {
+                    "type": "function",
+                    "function": {
+                        "name": "bob",
+                        "description": "I'm Bob, a friendly guy.",
+                        "parameters": {
+                            "properties": {
+                                "question": {
+                                    "description": "The question to ask Bob.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "time": "2024-07-03T10:53:07.384109-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018388",
+        "usage": {},
+        "content": "Waiting for model response..."
+    },
+    {
+        "time": "2024-07-03T10:53:07.670442-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018388",
+        "usage": {}
+    },
+    {
+        "time": "2024-07-03T10:53:08.283965-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018388",
+        "usage": {},
+        "content": "\u003ctool call\u003e bob -\u003e {\"question\": \"how are you doing\"}"
+    },
+    {
+        "time": "2024-07-03T10:53:08.284275-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callChat",
+        "chatCompletionId": "1720018388",
+        "usage": {
+            "promptTokens": 188,
+            "completionTokens": 23,
+            "totalTokens": 211
+        },
+        "chatResponse": {
+            "role": "assistant",
+            "content": [
+                {
+                    "toolCall": {
+                        "index": 0,
+                        "id": "K9FVJPqm6",
+                        "function": {
+                            "name": "bob",
+                            "arguments": "{\"question\": \"how are you doing\"}"
+                        }
+                    }
+                }
+            ],
+            "usage": {
+                "promptTokens": 188,
+                "completionTokens": 23,
+                "totalTokens": 211
+            }
+        }
+    },
+    {
+        "time": "2024-07-03T10:53:08.285881-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "toolSubCalls": {
+            "K9FVJPqm6": {
+                "toolID": "testdata/BobAsShell/test.gpt:bob",
+                "input": "{\"question\": \"how are you doing\"}"
+            }
+        },
+        "type": "callSubCalls",
+        "usage": {}
+    },
+    {
+        "time": "2024-07-03T10:53:08.286454-04:00",
+        "callContext": {
+            "id": "K9FVJPqm6",
+            "tool": {
+                "name": "bob",
+                "description": "I'm Bob, a friendly guy.",
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "arguments": {
+                    "properties": {
+                        "question": {
+                            "description": "The question to ask Bob.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "instructions": "#!/bin/bash\n\necho \"Thanks for asking ${question}, I'm doing great fellow friendly AI tool!\"",
+                "id": "testdata/BobAsShell/test.gpt:bob",
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 7
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null,
+            "toolName": "bob",
+            "parentID": "1720018386",
+            "displayText": "Running bob from testdata/BobAsShell/test.gpt"
+        },
+        "type": "callStart",
+        "usage": {},
+        "content": "{\"question\": \"how are you doing\"}"
+    },
+    {
+        "time": "2024-07-03T10:53:08.287602-04:00",
+        "callContext": {
+            "id": "K9FVJPqm6",
+            "tool": {
+                "name": "bob",
+                "description": "I'm Bob, a friendly guy.",
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "arguments": {
+                    "properties": {
+                        "question": {
+                            "description": "The question to ask Bob.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "instructions": "#!/bin/bash\n\necho \"Thanks for asking ${question}, I'm doing great fellow friendly AI tool!\"",
+                "id": "testdata/BobAsShell/test.gpt:bob",
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 7
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null,
+            "toolName": "bob",
+            "parentID": "1720018386",
+            "displayText": "Running bob from testdata/BobAsShell/test.gpt"
+        },
+        "type": "callChat",
+        "chatCompletionId": "1720018389",
+        "usage": {},
+        "chatRequest": {
+            "model": "",
+            "messages": null
+        }
+    },
+    {
+        "time": "2024-07-03T10:53:08.295318-04:00",
+        "callContext": {
+            "id": "K9FVJPqm6",
+            "tool": {
+                "name": "bob",
+                "description": "I'm Bob, a friendly guy.",
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "arguments": {
+                    "properties": {
+                        "question": {
+                            "description": "The question to ask Bob.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "instructions": "#!/bin/bash\n\necho \"Thanks for asking ${question}, I'm doing great fellow friendly AI tool!\"",
+                "id": "testdata/BobAsShell/test.gpt:bob",
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 7
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null,
+            "toolName": "bob",
+            "parentID": "1720018386",
+            "displayText": "Running bob from testdata/BobAsShell/test.gpt"
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018389",
+        "usage": {},
+        "content": "Thanks for asking how are you doing, I'm doing great fellow friendly AI tool!\n"
+    },
+    {
+        "time": "2024-07-03T10:53:08.295753-04:00",
+        "callContext": {
+            "id": "K9FVJPqm6",
+            "tool": {
+                "name": "bob",
+                "description": "I'm Bob, a friendly guy.",
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "arguments": {
+                    "properties": {
+                        "question": {
+                            "description": "The question to ask Bob.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "instructions": "#!/bin/bash\n\necho \"Thanks for asking ${question}, I'm doing great fellow friendly AI tool!\"",
+                "id": "testdata/BobAsShell/test.gpt:bob",
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 7
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null,
+            "toolName": "bob",
+            "parentID": "1720018386",
+            "displayText": "Running bob from testdata/BobAsShell/test.gpt"
+        },
+        "type": "callChat",
+        "chatCompletionId": "1720018389",
+        "usage": {},
+        "chatResponse": {
+            "usage": {}
+        }
+    },
+    {
+        "time": "2024-07-03T10:53:08.29586-04:00",
+        "callContext": {
+            "id": "K9FVJPqm6",
+            "tool": {
+                "name": "bob",
+                "description": "I'm Bob, a friendly guy.",
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "arguments": {
+                    "properties": {
+                        "question": {
+                            "description": "The question to ask Bob.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "instructions": "#!/bin/bash\n\necho \"Thanks for asking ${question}, I'm doing great fellow friendly AI tool!\"",
+                "id": "testdata/BobAsShell/test.gpt:bob",
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 7
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null,
+            "toolName": "bob",
+            "parentID": "1720018386",
+            "displayText": "Running bob from testdata/BobAsShell/test.gpt"
+        },
+        "type": "callFinish",
+        "usage": {},
+        "content": "Thanks for asking how are you doing, I'm doing great fellow friendly AI tool!\n"
+    },
+    {
+        "time": "2024-07-03T10:53:08.295955-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "toolResults": 1,
+        "type": "callContinue",
+        "usage": {}
+    },
+    {
+        "time": "2024-07-03T10:53:08.467884-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callChat",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "chatRequest": {
+            "model": "mistral-large-2402",
+            "messages": [
+                {
+                    "role": "system",
+                    "content": "Ask Bob \"how are you doing\" and repeat his reply exactly."
+                },
+                {
+                    "role": "assistant",
+                    "content": "",
+                    "tool_calls": [
+                        {
+                            "id": "K9FVJPqm6",
+                            "type": "function",
+                            "function": {
+                                "name": "bob",
+                                "arguments": "{\"question\": \"how are you doing\"}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "role": "tool",
+                    "content": "Thanks for asking how are you doing, I'm doing great fellow friendly AI tool!\n",
+                    "name": "bob",
+                    "tool_call_id": "K9FVJPqm6"
+                }
+            ],
+            "temperature": 0,
+            "tools": [
+                {
+                    "type": "function",
+                    "function": {
+                        "name": "bob",
+                        "description": "I'm Bob, a friendly guy.",
+                        "parameters": {
+                            "properties": {
+                                "question": {
+                                    "description": "The question to ask Bob.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "time": "2024-07-03T10:53:08.468218-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Waiting for model response..."
+    },
+    {
+        "time": "2024-07-03T10:53:08.755588-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {}
+    },
+    {
+        "time": "2024-07-03T10:53:08.756052-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob"
+    },
+    {
+        "time": "2024-07-03T10:53:08.792872-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said"
+    },
+    {
+        "time": "2024-07-03T10:53:08.843651-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said,"
+    },
+    {
+        "time": "2024-07-03T10:53:08.890513-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \""
+    },
+    {
+        "time": "2024-07-03T10:53:08.940592-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks"
+    },
+    {
+        "time": "2024-07-03T10:53:08.979075-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for"
+    },
+    {
+        "time": "2024-07-03T10:53:09.026193-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking"
+    },
+    {
+        "time": "2024-07-03T10:53:09.082478-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how"
+    },
+    {
+        "time": "2024-07-03T10:53:09.120629-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how are"
+    },
+    {
+        "time": "2024-07-03T10:53:09.169561-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how are you"
+    },
+    {
+        "time": "2024-07-03T10:53:09.216601-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how are you doing"
+    },
+    {
+        "time": "2024-07-03T10:53:09.261113-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how are you doing,"
+    },
+    {
+        "time": "2024-07-03T10:53:09.306429-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how are you doing, I"
+    },
+    {
+        "time": "2024-07-03T10:53:09.354951-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how are you doing, I'"
+    },
+    {
+        "time": "2024-07-03T10:53:09.401888-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how are you doing, I'm"
+    },
+    {
+        "time": "2024-07-03T10:53:09.448467-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how are you doing, I'm doing"
+    },
+    {
+        "time": "2024-07-03T10:53:09.493586-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how are you doing, I'm doing great"
+    },
+    {
+        "time": "2024-07-03T10:53:09.537745-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how are you doing, I'm doing great fellow"
+    },
+    {
+        "time": "2024-07-03T10:53:09.585266-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how are you doing, I'm doing great fellow friendly"
+    },
+    {
+        "time": "2024-07-03T10:53:09.63097-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how are you doing, I'm doing great fellow friendly AI"
+    },
+    {
+        "time": "2024-07-03T10:53:09.678117-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how are you doing, I'm doing great fellow friendly AI tool"
+    },
+    {
+        "time": "2024-07-03T10:53:09.726398-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how are you doing, I'm doing great fellow friendly AI tool!\""
+    },
+    {
+        "time": "2024-07-03T10:53:09.773449-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callProgress",
+        "chatCompletionId": "1720018390",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how are you doing, I'm doing great fellow friendly AI tool!\""
+    },
+    {
+        "time": "2024-07-03T10:53:09.774342-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callChat",
+        "chatCompletionId": "1720018390",
+        "usage": {
+            "promptTokens": 247,
+            "completionTokens": 22,
+            "totalTokens": 269
+        },
+        "chatResponse": {
+            "role": "assistant",
+            "content": [
+                {
+                    "text": "Bob said, \"Thanks for asking how are you doing, I'm doing great fellow friendly AI tool!\""
+                }
+            ],
+            "usage": {
+                "promptTokens": 247,
+                "completionTokens": 22,
+                "totalTokens": 269
+            }
+        }
+    },
+    {
+        "time": "2024-07-03T10:53:09.774431-04:00",
+        "callContext": {
+            "id": "1720018386",
+            "tool": {
+                "modelName": "mistral-large-2402 from github.com/gptscript-ai/mistral-laplateforme-provider",
+                "internalPrompt": null,
+                "tools": [
+                    "bob"
+                ],
+                "instructions": "Ask Bob \"how are you doing\" and repeat his reply exactly.",
+                "id": "testdata/BobAsShell/test.gpt:",
+                "toolMapping": {
+                    "bob": [
+                        {
+                            "reference": "bob",
+                            "toolID": "testdata/BobAsShell/test.gpt:bob"
+                        }
+                    ]
+                },
+                "localTools": {
+                    "": "testdata/BobAsShell/test.gpt:",
+                    "bob": "testdata/BobAsShell/test.gpt:bob"
+                },
+                "source": {
+                    "location": "testdata/BobAsShell/test.gpt",
+                    "lineNo": 1
+                },
+                "workingDir": "testdata/BobAsShell"
+            },
+            "currentAgent": {},
+            "inputContext": null
+        },
+        "type": "callFinish",
+        "usage": {},
+        "content": "Bob said, \"Thanks for asking how are you doing, I'm doing great fellow friendly AI tool!\""
+    },
+    {
+        "time": "2024-07-03T10:53:09.774496-04:00",
+        "type": "runFinish",
+        "usage": {}
+    }
+]

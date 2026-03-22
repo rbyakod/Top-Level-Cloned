@@ -1,0 +1,24 @@
+run:
+  timeout: 5m
+
+output:
+  formats:
+  - format: colored-line-number
+
+linters:
+  disable-all: true
+  enable:
+  - errcheck
+  - gofmt
+  - gosimple
+  - govet
+  - ineffassign
+  - staticcheck
+  - typecheck
+  - thelper
+  - unused
+  - goimports
+  - whitespace
+  - revive
+  fast: false
+  max-same-issues: 50
